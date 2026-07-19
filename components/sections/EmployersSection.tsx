@@ -1,31 +1,80 @@
-import { BriefcaseBusiness, SearchCheck, Users } from "lucide-react";
 import { Reveal } from "@/components/animation/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const items = [BriefcaseBusiness, SearchCheck, Users];
+const employerPoints = [
+  {
+    title: "A deeper understanding",
+    description:
+      "We look beyond the vacancy to understand your team, culture and business goals.",
+  },
+  {
+    title: "Carefully matched talent",
+    description:
+      "We focus on relevant, qualified candidates rather than overwhelming you with unsuitable profiles.",
+  },
+  {
+    title: "Local and international reach",
+    description:
+      "We help you access talent across the Middle East and international markets.",
+  },
+];
 
 export function EmployersSection() {
   return (
-    <section className="page-section dark-section" id="employers">
-      <span className="section-orbit" aria-hidden="true" />
+    <section
+      className="page-section dark-section employers-section"
+      id="employers"
+      aria-labelledby="employers-title"
+    >
       <Container>
-        <Reveal>
-          <div className="section-intro-row">
-            <SectionHeading inverse eyebrow="For Employers" title="[Section heading]" description="[Section description]" />
-            <ButtonLink href="/hire-talent" variant="light">[Primary call to action]</ButtonLink>
+        <Reveal className="employers-layout">
+          <header className="employers-heading">
+            <p className="eyebrow text-sand">For Employers</p>
+            <h2 className="section-title" id="employers-title">
+              Find the people your business needs to move forward.
+            </h2>
+          </header>
+
+          <div className="employers-detail">
+            <div className="employers-description">
+              <p>
+                Hiring the right person takes more than matching a CV to a job
+                description. We take the time to understand your business, the role and
+                the qualities needed for long-term success.
+              </p>
+              <p>
+                Venn Recruitment connects you with carefully selected professionals whose
+                skills, experience and ambitions align with your needs.
+              </p>
+            </div>
+
+            <div className="employers-actions">
+              <ButtonLink href="/hire-talent" variant="light">
+                Hire Talent
+              </ButtonLink>
+              <ButtonLink
+                className="employers-secondary-action"
+                href="/hire-talent"
+                variant="secondary"
+              >
+                Submit a Vacancy
+              </ButtonLink>
+            </div>
           </div>
-          <div className="card-grid card-grid-3">
-            {items.map((Icon, index) => (
-              <Card className="dark-card placeholder-card" key={index}>
-                <div className="icon-box"><Icon aria-hidden="true" /></div>
-                <h3>[Employer service]</h3>
-                <p className="placeholder-copy">[Service description]</p>
-              </Card>
+
+          <ul className="employers-points" aria-label="How Venn Recruitment supports employers">
+            {employerPoints.map((point) => (
+              <li className="employers-point" key={point.title}>
+                <h3>{point.title}</h3>
+                <p>{point.description}</p>
+              </li>
             ))}
-          </div>
+          </ul>
+
+          <p className="employers-closing">
+            The right hire does more than fill a role. They strengthen your business.
+          </p>
         </Reveal>
       </Container>
     </section>
