@@ -36,14 +36,14 @@ export function AboutIntersection() {
     >
       <svg
         className="about-intersection-lines"
-        viewBox="0 0 760 440"
+        viewBox="0 0 760 560"
         aria-hidden="true"
       >
         <rect
           className="about-outline about-outline-company"
           data-about-outline
           x="100"
-          y="50"
+          y="30"
           width="340"
           height="340"
           rx="34"
@@ -53,7 +53,7 @@ export function AboutIntersection() {
           className="about-outline about-outline-candidate"
           data-about-outline
           x="320"
-          y="50"
+          y="190"
           width="340"
           height="340"
           rx="34"
