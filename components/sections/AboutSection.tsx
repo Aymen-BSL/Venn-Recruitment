@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/animation/Reveal";
+import { AboutIntersection } from "@/components/graphics/AboutIntersection";
 import { Container } from "@/components/ui/Container";
 
 export function AboutSection() {
@@ -22,24 +23,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="about-concept" aria-label="The Venn Recruitment concept">
-            <div className="about-concept-pair">
-              <article className="about-concept-card">
-                <p className="about-concept-label">What companies need</p>
-                <h3>The right skills, experience and cultural fit.</h3>
-              </article>
-
-              <article className="about-concept-card">
-                <p className="about-concept-label">What candidates want</p>
-                <h3>The right opportunity, environment and direction.</h3>
-              </article>
-            </div>
-
-            <article className="about-concept-card about-concept-match">
-              <p className="about-concept-label">Where they meet</p>
-              <h3>A match designed to create long-term value for both.</h3>
-            </article>
-          </div>
+          <AboutIntersection />
 
           <div className="about-closing">
             <p>

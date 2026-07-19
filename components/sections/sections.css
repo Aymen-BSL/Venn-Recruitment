@@ -22,91 +22,123 @@
 
 .about-layout {
   display: grid;
-  gap: clamp(3.5rem, 7vw, 6.5rem);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .about-copy .section-title {
-  font-size: clamp(2.75rem, 5vw, 4.85rem);
+  font-size: clamp(2.65rem, 4.4vw, 4.35rem);
   max-width: 11ch;
 }
 
 .about-description {
   color: rgb(30 31 34 / 0.66);
   display: grid;
-  font-size: clamp(1rem, 1.25vw, 1.125rem);
-  gap: 1rem;
-  line-height: 1.7;
-  margin-top: clamp(1.75rem, 3vw, 2.5rem);
-  max-width: 39rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  gap: 0.8rem;
+  line-height: 1.62;
+  margin-top: clamp(1.4rem, 2.5vw, 2rem);
+  max-width: 36rem;
 }
 
 .about-description p {
   margin: 0;
 }
 
-.about-concept {
-  align-self: start;
-}
-
-.about-concept-pair {
-  display: grid;
-  gap: 0.875rem;
-}
-
-.about-concept-card {
-  background: color-mix(in srgb, var(--paper) 88%, white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 13rem;
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-}
-
-.about-concept-label {
-  color: var(--green-dark);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.about-intersection {
+  align-self: center;
+  aspect-ratio: 760 / 440;
   margin: 0;
+  max-width: 47.5rem;
+  position: relative;
+  width: 100%;
 }
 
-.about-concept-card h3 {
-  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
-  margin: 2.75rem 0 0;
+.about-intersection-lines {
+  display: block;
+  height: 100%;
+  overflow: visible;
+  width: 100%;
+}
+
+.about-outline {
+  fill: none;
+  stroke-dasharray: 1.2 2.15;
+  stroke-linecap: round;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.about-outline-company {
+  stroke: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+
+.about-outline-candidate {
+  stroke: var(--green);
+}
+
+.about-intersection-label {
+  display: grid;
+  gap: 0.45rem;
+  max-width: 11rem;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about-intersection-label span {
+  color: rgb(30 31 34 / 0.54);
+  font-size: clamp(0.65rem, 0.85vw, 0.78rem);
+  font-weight: 650;
+}
+
+.about-intersection-label strong {
+  font-size: clamp(0.92rem, 1.35vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.18;
   text-wrap: balance;
 }
 
-.about-concept-match {
-  background: var(--green);
-  border-color: var(--green);
-  box-shadow: 0 20px 45px rgb(20 91 81 / 0.16);
-  color: white;
-  margin-top: 0.875rem;
-  position: relative;
-  z-index: 1;
+.about-intersection-company {
+  left: 21.5%;
 }
 
-.about-concept-match .about-concept-label {
-  color: rgb(255 255 255 / 0.72);
+.about-intersection-candidate {
+  left: 78.5%;
+}
+
+.about-logo-placeholder {
+  align-items: center;
+  background: white;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgb(30 31 34 / 0.08);
+  display: flex;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  height: clamp(3.7rem, 7vw, 5rem);
+  justify-content: center;
+  left: 50%;
+  letter-spacing: -0.04em;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(3.7rem, 7vw, 5rem);
 }
 
 .about-closing {
   border-top: 1px solid var(--line);
-  padding-top: clamp(2rem, 4vw, 3.25rem);
+  padding-top: clamp(1.5rem, 3vw, 2.4rem);
 }
 
 .about-closing p {
-  font-size: clamp(1.85rem, 3.5vw, 3.5rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.65rem);
   font-weight: 500;
   letter-spacing: -0.035em;
-  line-height: 1.08;
+  line-height: 1.1;
   margin: 0;
-  max-width: 31ch;
+  max-width: 37ch;
   text-wrap: balance;
 }
 
@@ -592,15 +624,6 @@
 }
 
 @media (min-width: 640px) {
-  .about-concept-pair {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .about-concept-match {
-    margin: -1.25rem auto 0;
-    width: calc(100% - clamp(3rem, 8vw, 6rem));
-  }
-
   .industry-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -612,6 +635,18 @@
 }
 
 @media (min-width: 900px) {
+  .about-section {
+    align-items: center;
+    display: flex;
+    height: 100svh;
+    max-height: 100svh;
+    padding-block: clamp(3rem, 7svh, 5.25rem);
+  }
+
+  .about-section > .site-container {
+    width: 100%;
+  }
+
   .candidate-layout,
   .locations-layout,
   .why-layout,
@@ -622,10 +657,10 @@
   }
 
   .about-layout {
-    align-items: start;
-    column-gap: clamp(4rem, 8vw, 8rem);
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-    row-gap: clamp(4rem, 7vw, 6.5rem);
+    align-items: center;
+    column-gap: clamp(3rem, 6vw, 6.5rem);
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    row-gap: clamp(1.75rem, 4svh, 3.25rem);
   }
 
   .about-closing {
@@ -643,5 +678,37 @@
 
   .industry-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) and (max-height: 720px) {
+  .about-section {
+    padding-block: 2.25rem;
+  }
+
+  .about-layout {
+    row-gap: 1.5rem;
+  }
+
+  .about-copy .section-title {
+    font-size: clamp(2.7rem, 4vw, 3.7rem);
+  }
+
+  .about-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 1.15rem;
+  }
+
+  .about-intersection {
+    max-width: 41rem;
+  }
+
+  .about-closing {
+    padding-top: 1.25rem;
+  }
+
+  .about-closing p {
+    font-size: clamp(1.55rem, 2.3vw, 2.2rem);
   }
 }
