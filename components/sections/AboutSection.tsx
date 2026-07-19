@@ -24,13 +24,6 @@ export function AboutSection() {
           </div>
 
           <AboutIntersection />
-
-          <div className="about-closing">
-            <p>
-              We do more than fill roles. We create connections that move people and
-              businesses forward.
-            </p>
-          </div>
         </Reveal>
       </Container>
     </section>

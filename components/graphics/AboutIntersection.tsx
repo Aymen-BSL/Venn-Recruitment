@@ -42,20 +42,20 @@ export function AboutIntersection() {
         <rect
           className="about-outline about-outline-company"
           data-about-outline
-          x="42"
-          y="62"
-          width="430"
-          height="316"
+          x="100"
+          y="50"
+          width="340"
+          height="340"
           rx="34"
           pathLength="100"
         />
         <rect
           className="about-outline about-outline-candidate"
           data-about-outline
-          x="288"
-          y="62"
-          width="430"
-          height="316"
+          x="320"
+          y="50"
+          width="340"
+          height="340"
           rx="34"
           pathLength="100"
         />

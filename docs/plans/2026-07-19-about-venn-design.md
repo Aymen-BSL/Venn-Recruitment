@@ -1,9 +1,9 @@
 # About Venn Recruitment Design
 
-The section uses an editorial two-column layout. The left column carries the eyebrow, main heading, and the two supplied supporting paragraphs. The right column explains the Venn concept through two equal neutral panels for company and candidate priorities, with one green panel centered beneath them as the shared outcome.
+The section uses a compact two-column layout. The left column contains only the eyebrow, main heading, and two supporting paragraphs. The right column contains a single minimal illustration, with no additional conclusion row or secondary content band.
 
-The panels overlap slightly at desktop widths to communicate intersection without drawing literal circles or combining several accent colors. On smaller screens they become a simple vertical sequence with no overlap, preserving reading order and avoiding cramped content. The section uses Host Grotesk throughout and relies on spacing, borders, proportion, and a single green focal surface for hierarchy.
+The illustration uses two equal unfilled squares with the site's established corner radius. Their dashed ink and green borders overlap to express the Venn concept without literal circles, filled cards, or decorative icons. Short company and candidate labels sit in the outer areas, while a temporary V mark occupies the intersection.
 
-The supplied closing statement sits below the two-column composition in a wide concluding band. Its larger type gives the section a clear finish while remaining subordinate to the main heading. Existing GSAP reveal behavior wraps the section content, respects reduced motion, and requires no new animation code.
+GSAP moves the two dashed borders slowly in opposite directions. The motion is isolated in a client component, does not affect layout, cleans up on unmount, and stops when reduced motion is requested.
 
-Accessibility is maintained with semantic headings, paragraphs, and a labelled concept group. No interaction is introduced, so the section remains keyboard-neutral and has no unnecessary focus targets.
+At desktop widths the complete section is centered inside exactly one viewport. On smaller screens the layout becomes content-driven and stacks vertically so the supplied text and illustration are never clipped.
