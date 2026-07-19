@@ -12,7 +12,7 @@ export function CandidatesSection() {
           <div className="candidate-layout">
             <div>
               <SectionHeading eyebrow="For Candidates" title="[Section heading]" description="[Section description]" />
-              <ButtonLink className="section-cta" href="#find-a-job">[Primary call to action]</ButtonLink>
+              <ButtonLink className="section-cta" href="/submit-cv">[Primary call to action]</ButtonLink>
             </div>
             <div className="candidate-list">
               {[

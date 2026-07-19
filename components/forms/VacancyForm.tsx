@@ -26,7 +26,7 @@ export function VacancyForm() {
       <FormField id="vacancy-details" label="Vacancy details" kind="textarea" placeholder="[Vacancy requirements and context]" required />
       <button className="form-submit" type="submit" disabled={submitted}>
         <Send aria-hidden="true" size={18} />
-        {submitted ? "[Vacancy submitted]" : "[Submit a vacancy]"}
+        {submitted ? "Vacancy Submitted" : "Submit a Vacancy"}
       </button>
       {submitted ? <p className="form-success" role="status">[Vacancy submission success message]</p> : null}
     </form>

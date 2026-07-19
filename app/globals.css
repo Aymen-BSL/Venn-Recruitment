@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../components/layout/header.css";
+@import "../components/layout/form-page.css";
 @import "../components/sections/home.css";
 @import "../components/sections/sections.css";
 
@@ -9,11 +10,11 @@
   --color-green: var(--green);
   --color-sand: var(--sand);
   --color-violet: var(--violet);
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-host-grotesk);
 }
 
 :root {
+  --font-sans: var(--font-host-grotesk);
   --paper: #f8f9fa;
   --ink: #1e1f22;
   --green: #217b6d;
@@ -104,7 +105,7 @@ textarea:focus-visible {
 }
 
 .section-title {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-sans), Arial, sans-serif;
   font-size: clamp(2.55rem, 5.4vw, 5.65rem);
   font-weight: 500;
   letter-spacing: -0.045em;
@@ -314,7 +315,7 @@ textarea.form-control {
 }
 
 .placeholder-card h3 {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-sans), Arial, sans-serif;
   font-size: 1.75rem;
   font-weight: 500;
   letter-spacing: -0.025em;

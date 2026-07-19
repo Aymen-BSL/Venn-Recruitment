@@ -11,7 +11,7 @@ const navigation = [
   ["About Venn", "#about"],
   ["For Employers", "#employers"],
   ["For Candidates", "#candidates"],
-  ["Find a Job", "#find-a-job"],
+  ["Find a Job", "/submit-cv"],
   ["Industries", "#industries"],
   ["Locations", "#locations"],
   ["Contact", "#contact"],
@@ -64,8 +64,8 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link className="header-cv" href="#submit-cv">Submit Your CV</Link>
-          <Link className="header-hire" href="#hire-talent">
+          <Link className="header-cv" href="/submit-cv">Submit Your CV</Link>
+          <Link className="header-hire" href="/hire-talent">
             Hire Talent <ArrowRight aria-hidden="true" size={15} />
           </Link>
         </div>
@@ -89,8 +89,8 @@ export function Header() {
               <Link data-mobile-link href={href} key={href} onClick={closeMenu}>{label}</Link>
             ))}
             <div className="mobile-actions" data-mobile-link>
-              <Link href="#submit-cv" onClick={closeMenu}>Submit Your CV</Link>
-              <Link href="#hire-talent" onClick={closeMenu}>Hire Talent</Link>
+              <Link href="/submit-cv" onClick={closeMenu}>Submit Your CV</Link>
+              <Link href="/hire-talent" onClick={closeMenu}>Hire Talent</Link>
             </div>
           </nav>
         </div>

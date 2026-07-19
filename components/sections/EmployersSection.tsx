@@ -15,7 +15,7 @@ export function EmployersSection() {
         <Reveal>
           <div className="section-intro-row">
             <SectionHeading inverse eyebrow="For Employers" title="[Section heading]" description="[Section description]" />
-            <ButtonLink href="#hire-talent" variant="light">[Primary call to action]</ButtonLink>
+            <ButtonLink href="/hire-talent" variant="light">[Primary call to action]</ButtonLink>
           </div>
           <div className="card-grid card-grid-3">
             {items.map((Icon, index) => (

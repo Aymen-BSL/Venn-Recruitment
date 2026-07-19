@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 
 const footerLinks = [
   ["Home", "#home"], ["About Venn", "#about"], ["For Employers", "#employers"],
-  ["For Candidates", "#candidates"], ["Find a Job", "#find-a-job"], ["Industries", "#industries"],
+  ["For Candidates", "#candidates"], ["Find a Job", "/submit-cv"], ["Industries", "#industries"],
   ["Locations", "#locations"], ["Contact", "#contact"],
 ] as const;
 

@@ -30,7 +30,7 @@ export function CvSubmissionForm() {
       <FormField id="cv-note" label="Supporting note" kind="textarea" placeholder="[Supporting information]" />
       <button className="form-submit" type="submit" disabled={submitted}>
         <Send aria-hidden="true" size={18} />
-        {submitted ? "[CV submitted]" : "[Submit your CV]"}
+        {submitted ? "CV Submitted" : "Submit Your CV"}
       </button>
       {submitted ? <p className="form-success" role="status">[CV submission success message]</p> : null}
     </form>
