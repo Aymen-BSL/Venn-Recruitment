@@ -1,4 +1,3 @@
-.split-layout,
 .candidate-layout,
 .form-section-layout,
 .locations-layout,
@@ -17,31 +16,103 @@
   justify-content: space-between;
 }
 
+.about-section {
+  background: white;
+}
+
+.about-layout {
+  display: grid;
+  gap: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.about-copy .section-title {
+  font-size: clamp(2.75rem, 5vw, 4.85rem);
+  max-width: 11ch;
+}
+
+.about-description {
+  color: rgb(30 31 34 / 0.66);
+  display: grid;
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  gap: 1rem;
+  line-height: 1.7;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  max-width: 39rem;
+}
+
+.about-description p {
+  margin: 0;
+}
+
+.about-concept {
+  align-self: start;
+}
+
+.about-concept-pair {
+  display: grid;
+  gap: 0.875rem;
+}
+
+.about-concept-card {
+  background: color-mix(in srgb, var(--paper) 88%, white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 13rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.about-concept-label {
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.about-concept-card h3 {
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin: 2.75rem 0 0;
+  text-wrap: balance;
+}
+
+.about-concept-match {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 20px 45px rgb(20 91 81 / 0.16);
+  color: white;
+  margin-top: 0.875rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-concept-match .about-concept-label {
+  color: rgb(255 255 255 / 0.72);
+}
+
+.about-closing {
+  border-top: 1px solid var(--line);
+  padding-top: clamp(2rem, 4vw, 3.25rem);
+}
+
+.about-closing p {
+  font-size: clamp(1.85rem, 3.5vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin: 0;
+  max-width: 31ch;
+  text-wrap: balance;
+}
+
 .section-intro-row .button,
 .section-cta {
   margin-top: 2rem;
-}
-
-.overlap-cards {
-  min-height: 28rem;
-  position: relative;
-}
-
-.overlap-card {
-  min-height: 20rem;
-  position: absolute;
-  width: min(80%, 22rem);
-}
-
-.overlap-card-green {
-  left: 0;
-  top: 0;
-}
-
-.overlap-card-violet {
-  background: color-mix(in srgb, var(--violet) 10%, white);
-  bottom: 0;
-  right: 0;
 }
 
 .dark-card {
@@ -521,6 +592,15 @@
 }
 
 @media (min-width: 640px) {
+  .about-concept-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-concept-match {
+    margin: -1.25rem auto 0;
+    width: calc(100% - clamp(3rem, 8vw, 6rem));
+  }
+
   .industry-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -532,7 +612,6 @@
 }
 
 @media (min-width: 900px) {
-  .split-layout,
   .candidate-layout,
   .locations-layout,
   .why-layout,
@@ -540,6 +619,17 @@
   .contact-layout {
     align-items: center;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .about-layout {
+    align-items: start;
+    column-gap: clamp(4rem, 8vw, 8rem);
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    row-gap: clamp(4rem, 7vw, 6.5rem);
+  }
+
+  .about-closing {
+    grid-column: 1 / -1;
   }
 
   .form-section-layout {
