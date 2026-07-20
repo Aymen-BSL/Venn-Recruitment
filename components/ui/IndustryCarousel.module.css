@@ -168,6 +168,10 @@
   .page {
     --industry-columns: 2;
   }
+
+  .cardContent h3 {
+    min-height: 2.3em;
+  }
 }
 
 @media (min-width: 1100px) {
