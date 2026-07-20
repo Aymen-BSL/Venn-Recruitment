@@ -7,7 +7,7 @@
   --node-size: 4.25rem;
   --orbit-radius: clamp(8.5rem, 18vw, 14rem);
   --orbit-rotation: 0deg;
-  --pulse-scale: 2.5;
+  --pulse-scale: 1.75;
   aspect-ratio: 1;
   isolation: isolate;
   margin-inline: auto;
@@ -77,8 +77,8 @@
 }
 
 .centerCore::after {
-  animation: center-inner-breathe 3.4s ease-in-out infinite;
-  background: rgb(255 255 255 / 0.09);
+  animation: center-color-breathe 3.4s ease-in-out infinite;
+  background-color: rgb(255 255 255 / 0.06);
   inset: 0.55rem;
 }
 
@@ -258,37 +258,37 @@
 @keyframes center-mark-breathe {
   0%,
   100% {
-    opacity: 0.82;
-    transform: scale(0.96);
+    opacity: 0.68;
   }
 
   50% {
     opacity: 1;
-    transform: scale(1.045);
   }
 }
 
-@keyframes center-inner-breathe {
+@keyframes center-color-breathe {
   0%,
   100% {
-    opacity: 0.48;
-    transform: scale(0.9);
+    background-color: rgb(255 255 255 / 0.05);
   }
 
   50% {
-    opacity: 1;
-    transform: scale(1.08);
+    background-color: rgb(255 255 255 / 0.16);
   }
 }
 
 @keyframes center-pulse {
   0% {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(1);
   }
 
-  16% {
-    opacity: 0.42;
+  12% {
+    opacity: 0.34;
+  }
+
+  72% {
+    opacity: 0.06;
   }
 
   100% {
@@ -302,7 +302,7 @@
     --callout-offset: 3.25rem;
     --node-size: 3.5rem;
     --orbit-radius: clamp(7rem, 31vw, 8.25rem);
-    --pulse-scale: 1.65;
+    --pulse-scale: 1.28;
   }
 
   .nodeLabel {
@@ -333,7 +333,7 @@
     --callout-offset: 4.25rem;
     --node-size: 5rem;
     --orbit-radius: 14.5rem;
-    --pulse-scale: 3;
+    --pulse-scale: 2;
     max-width: 39.5rem;
   }
 
