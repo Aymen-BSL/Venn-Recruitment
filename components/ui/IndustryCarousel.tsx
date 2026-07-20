@@ -9,49 +9,57 @@ import styles from "./IndustryCarousel.module.css";
 const industries = [
   {
     name: "Corporate & Professional Services",
-    description: "Professionals for essential corporate and specialist functions.",
+    description:
+      "Connecting businesses with professionals across essential corporate and specialist functions.",
     image: "/media/venn-hero-poster.jpg",
     imageAlt: "Professionals working together in a modern office",
   },
   {
     name: "Technology & Digital",
-    description: "Talent for an increasingly connected, technology-driven world.",
+    description:
+      "Helping companies find talent for an increasingly connected and technology-driven world.",
     image: "/media/candidates/international-opportunities.png",
     imageAlt: "Contemporary technology and business district architecture",
   },
   {
     name: "Engineering & Technical",
-    description: "Technical specialists with practical, role-ready experience.",
+    description:
+      "Matching skilled professionals with roles that require technical expertise and practical experience.",
     image: "/media/candidates/guided-support.png",
     imageAlt: "Structural engineering details in a modern development",
   },
   {
     name: "Construction & Real Estate",
-    description: "People supporting the region's continued development.",
+    description:
+      "Supporting the people and businesses contributing to the region's continued development.",
     image: "/media/candidates/opportunity-fit.png",
     imageAlt: "Modern workplace interior shaped by regional architecture",
   },
   {
     name: "Hospitality & Tourism",
-    description: "Service-focused professionals for growing hospitality markets.",
+    description:
+      "Connecting service-focused professionals with opportunities across growing hospitality markets.",
     image: "/media/candidates/guided-support.png",
     imageAlt: "Welcoming landscaped entrance to a contemporary destination",
   },
   {
     name: "Retail & Consumer",
-    description: "Talent that understands customers, operations and growth.",
+    description:
+      "Helping businesses find the talent needed to understand customers, strengthen operations and support growth.",
     image: "/media/venn-hero-poster.jpg",
     imageAlt: "Collaborative team reviewing work together",
   },
   {
     name: "Logistics & Supply Chain",
-    description: "Professionals who keep goods, services and operations moving.",
+    description:
+      "Matching professionals with organisations responsible for keeping goods, services and operations moving.",
     image: "/media/candidates/international-opportunities.png",
     imageAlt: "Connected transport and commercial infrastructure",
   },
   {
     name: "Healthcare",
-    description: "Professionals committed to quality care and meaningful impact.",
+    description:
+      "Connecting healthcare organisations with professionals committed to quality care and meaningful impact.",
     image: "/media/candidates/opportunity-fit.png",
     imageAlt: "Calm professional environment designed around care and focus",
   },
