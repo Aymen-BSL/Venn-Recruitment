@@ -1,19 +1,23 @@
 import { Reveal } from "@/components/animation/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
+import { BadgeCheck, Globe2, ScanSearch } from "lucide-react";
 
 const employerPoints = [
   {
+    icon: ScanSearch,
     title: "A deeper understanding",
     description:
       "We learn how the role fits your team, culture and goals.",
   },
   {
+    icon: BadgeCheck,
     title: "Carefully matched talent",
     description:
       "We introduce relevant, qualified candidates instead of unsuitable profiles.",
   },
   {
+    icon: Globe2,
     title: "Local and international reach",
     description:
       "Access talent across the Middle East and international markets.",
@@ -65,8 +69,13 @@ export function EmployersSection() {
           <ul className="employers-points" aria-label="How Venn Recruitment supports employers">
             {employerPoints.map((point) => (
               <li className="employers-point" key={point.title}>
-                <h3>{point.title}</h3>
-                <p>{point.description}</p>
+                <span className="employers-point-icon" aria-hidden="true">
+                  <point.icon size={22} strokeWidth={1.7} />
+                </span>
+                <div className="employers-point-copy">
+                  <h3>{point.title}</h3>
+                  <p>{point.description}</p>
+                </div>
               </li>
             ))}
           </ul>

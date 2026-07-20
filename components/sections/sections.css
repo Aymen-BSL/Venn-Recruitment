@@ -194,6 +194,28 @@
   margin: 0;
 }
 
+.employers-point-icon {
+  align-items: center;
+  border: 1px solid rgb(255 255 255 / 0.24);
+  border-radius: var(--radius-sm);
+  color: var(--sand);
+  display: inline-flex;
+  height: 2.75rem;
+  justify-content: center;
+  width: 2.75rem;
+}
+
+.employers-point {
+  align-items: start;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.employers-point-copy {
+  min-width: 0;
+}
+
 .employers-point p {
   color: rgb(255 255 255 / 0.58);
   line-height: 1.6;

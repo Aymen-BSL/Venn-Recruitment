@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/animation/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
+import { InteractiveImageAccordion } from "@/components/ui/InteractiveImageAccordion";
 import styles from "./CandidatesSection.module.css";
 
 const candidateBenefits = [
@@ -8,16 +9,19 @@ const candidateBenefits = [
     title: "Opportunities that fit",
     description:
       "Roles aligned with your experience, ambitions and career goals.",
+    image: "/media/candidates/opportunity-fit.png",
   },
   {
     title: "Support at every step",
     description:
       "Stay informed and prepared from application through offer.",
+    image: "/media/candidates/guided-support.png",
   },
   {
     title: "Local and international opportunities",
     description:
       "Explore roles across the Middle East and international markets.",
+    image: "/media/candidates/international-opportunities.png",
   },
 ];
 
@@ -53,14 +57,11 @@ export function CandidatesSection() {
             </ButtonLink>
           </div>
 
-          <ul className={styles.benefits} aria-label="How Venn Recruitment supports candidates">
-            {candidateBenefits.map((benefit) => (
-              <li className={styles.benefit} key={benefit.title}>
-                <h3>{benefit.title}</h3>
-                <p>{benefit.description}</p>
-              </li>
-            ))}
-          </ul>
+          <InteractiveImageAccordion
+            className={styles.benefits}
+            items={candidateBenefits}
+            label="How Venn Recruitment supports candidates"
+          />
         </Reveal>
       </Container>
     </section>
