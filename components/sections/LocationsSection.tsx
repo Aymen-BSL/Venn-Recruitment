@@ -1,22 +1,29 @@
 import { Reveal } from "@/components/animation/Reveal";
 import { Container } from "@/components/ui/Container";
+import {
+  type MarketOrbitItem,
+  RadialMarketOrbit,
+} from "@/components/ui/RadialMarketOrbit";
 import styles from "./LocationsSection.module.css";
 
-const marketAreas = [
+const marketAreas: MarketOrbitItem[] = [
   {
     title: "Across the Middle East",
     description:
       "Supporting employers and candidates across established and growing regional markets.",
+    icon: "region",
   },
   {
     title: "International connections",
     description:
       "Connecting businesses with global talent and professionals with opportunities beyond their home country.",
+    icon: "international",
   },
   {
     title: "Market-aware recruitment",
     description:
       "Considering location, work environment and expectations alongside the role itself.",
+    icon: "aware",
   },
 ];
 
@@ -55,14 +62,10 @@ export function LocationsSection() {
 
           <div className={styles.areas}>
             <p className={styles.areasLabel_section_6}>Key areas</p>
-            <ul aria-label="Venn Recruitment market coverage">
-              {marketAreas.map((area) => (
-                <li key={area.title}>
-                  <h3>{area.title}</h3>
-                  <p>{area.description}</p>
-                </li>
-              ))}
-            </ul>
+            <RadialMarketOrbit
+              items={marketAreas}
+              label="Venn Recruitment market coverage"
+            />
           </div>
         </Reveal>
       </Container>

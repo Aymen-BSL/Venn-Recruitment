@@ -1,0 +1,212 @@
+.orbit {
+  width: 100%;
+}
+
+.stage {
+  --orbit-radius: clamp(7.5rem, 16vw, 12rem);
+  aspect-ratio: 1;
+  isolation: isolate;
+  margin-inline: auto;
+  max-width: 31rem;
+  position: relative;
+  width: 100%;
+}
+
+.orbitRing {
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 50%;
+  height: calc(var(--orbit-radius) * 2);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--orbit-radius) * 2);
+}
+
+.orbitRing::before,
+.orbitRing::after {
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: inherit;
+  content: "";
+  inset: 9%;
+  position: absolute;
+}
+
+.orbitRing::after {
+  inset: 20%;
+}
+
+.centerCard {
+  align-items: flex-start;
+  background: rgb(255 255 255 / 0.12);
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  left: 50%;
+  min-height: 10.75rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(10.5rem, 42%, 13.5rem);
+  z-index: 2;
+}
+
+.centerIcon {
+  align-items: center;
+  color: var(--paper);
+  display: inline-flex;
+}
+
+.centerCard h3 {
+  color: white;
+  font-size: clamp(1rem, 1.55vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.centerCard p {
+  color: rgb(255 255 255 / 0.72);
+  font-size: clamp(0.74rem, 1.05vw, 0.88rem);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.nodePosition {
+  animation: market-orbit 30s linear infinite;
+  height: 3.25rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 3.25rem;
+  z-index: 3;
+}
+
+.stage:hover .nodePosition,
+.stage:focus-within .nodePosition {
+  animation-play-state: paused;
+}
+
+.node {
+  align-items: center;
+  background: var(--violet);
+  border: 1px solid rgb(255 255 255 / 0.48);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  height: 3.25rem;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+  width: 3.25rem;
+}
+
+.node:hover,
+.node[data-active="true"] {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--violet);
+  transform: scale(1.08);
+}
+
+.node:focus-visible {
+  outline: 3px solid var(--sand);
+  outline-offset: 4px;
+}
+
+.nodeIcon {
+  align-items: center;
+  display: inline-flex;
+}
+
+.nodeLabel {
+  color: rgb(255 255 255 / 0.74);
+  font-size: 0.72rem;
+  font-weight: 650;
+  left: 50%;
+  line-height: 1.15;
+  position: absolute;
+  text-align: center;
+  text-wrap: balance;
+  top: calc(100% + 0.65rem);
+  transform: translateX(-50%);
+  transition: color 180ms ease;
+  width: 8.5rem;
+}
+
+.node:hover .nodeLabel,
+.node[data-active="true"] .nodeLabel {
+  color: white;
+}
+
+@keyframes market-orbit {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--node-angle))
+      translateX(var(--orbit-radius))
+      rotate(var(--node-angle-inverse));
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(calc(var(--node-angle) + 360deg))
+      translateX(var(--orbit-radius))
+      rotate(calc(var(--node-angle-inverse) - 360deg));
+  }
+}
+
+@media (max-width: 480px) {
+  .stage {
+    --orbit-radius: clamp(6.8rem, 31vw, 8rem);
+  }
+
+  .centerCard {
+    gap: 0.5rem;
+    min-height: 9.25rem;
+    padding: 0.9rem;
+    width: 9rem;
+  }
+
+  .centerCard h3 {
+    font-size: 0.96rem;
+  }
+
+  .centerCard p {
+    font-size: 0.7rem;
+  }
+
+  .nodePosition,
+  .node {
+    height: 2.9rem;
+    width: 2.9rem;
+  }
+
+  .nodeLabel {
+    font-size: 0.66rem;
+    width: 6.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nodePosition {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+
+  .node {
+    transition-duration: 0.01ms;
+  }
+}
