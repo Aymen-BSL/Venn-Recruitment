@@ -3,7 +3,10 @@
 }
 
 .stage {
+  --callout-offset: 3.8rem;
+  --node-size: 4.25rem;
   --orbit-radius: clamp(8.5rem, 18vw, 14rem);
+  --orbit-rotation: 0deg;
   aspect-ratio: 1;
   isolation: isolate;
   margin-inline: auto;
@@ -51,8 +54,16 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
   width: 5.75rem;
   z-index: 2;
+}
+
+.stage[data-active="true"] .centerCore {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.82);
 }
 
 .centerCore span {
@@ -62,18 +73,18 @@
 }
 
 .nodePosition {
-  animation: market-orbit 30s linear infinite;
-  height: 4rem;
+  height: var(--node-size);
   left: 50%;
   position: absolute;
   top: 50%;
-  width: 4rem;
+  transform:
+    translate(-50%, -50%)
+    rotate(calc(var(--node-angle) + var(--orbit-rotation)))
+    translateX(var(--orbit-radius))
+    rotate(calc(var(--node-angle-inverse) - var(--orbit-rotation)));
+  width: var(--node-size);
+  will-change: transform;
   z-index: 3;
-}
-
-.stage[data-paused="true"] .nodePosition,
-.stage:focus-within .nodePosition {
-  animation-play-state: paused;
 }
 
 .node {
@@ -84,7 +95,7 @@
   color: white;
   cursor: pointer;
   display: flex;
-  height: 4rem;
+  height: var(--node-size);
   justify-content: center;
   padding: 0;
   position: relative;
@@ -93,7 +104,7 @@
     border-color 180ms ease,
     color 180ms ease,
     transform 180ms ease;
-  width: 4rem;
+  width: var(--node-size);
 }
 
 .node:hover,
@@ -112,6 +123,11 @@
 .nodeIcon {
   align-items: center;
   display: inline-flex;
+}
+
+.nodeIcon svg {
+  height: 1.45rem;
+  width: 1.45rem;
 }
 
 .nodeLabel {
@@ -142,57 +158,18 @@
 
 .callout {
   position: absolute;
-  width: clamp(11.5rem, 37%, 14.5rem);
+  transform: translate(-50%, var(--callout-offset));
+  width: clamp(12.5rem, 42%, 17rem);
   z-index: 5;
 }
 
 .callout::after {
   background: rgb(255 255 255 / 0.58);
-  content: "";
-  position: absolute;
-}
-
-.callout[data-placement="left"] {
-  transform: translate(calc(-100% - 3.5rem), -50%);
-}
-
-.callout[data-placement="left"]::after {
-  height: 1px;
-  left: 100%;
-  top: 50%;
-  width: 1.4rem;
-}
-
-.callout[data-placement="right"] {
-  transform: translate(3.5rem, -50%);
-}
-
-.callout[data-placement="right"]::after {
-  height: 1px;
-  right: 100%;
-  top: 50%;
-  width: 1.4rem;
-}
-
-.callout[data-placement="top"] {
-  transform: translate(-50%, calc(-100% - 3.5rem));
-}
-
-.callout[data-placement="top"]::after {
-  height: 1.4rem;
-  left: 50%;
-  top: 100%;
-  width: 1px;
-}
-
-.callout[data-placement="bottom"] {
-  transform: translate(-50%, 3.5rem);
-}
-
-.callout[data-placement="bottom"]::after {
   bottom: 100%;
-  height: 1.4rem;
+  content: "";
+  height: 1.45rem;
   left: 50%;
+  position: absolute;
   width: 1px;
 }
 
@@ -241,33 +218,11 @@
   }
 }
 
-@keyframes market-orbit {
-  from {
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--node-angle))
-      translateX(var(--orbit-radius))
-      rotate(var(--node-angle-inverse));
-  }
-
-  to {
-    transform:
-      translate(-50%, -50%)
-      rotate(calc(var(--node-angle) + 360deg))
-      translateX(var(--orbit-radius))
-      rotate(calc(var(--node-angle-inverse) - 360deg));
-  }
-}
-
 @media (max-width: 480px) {
   .stage {
+    --callout-offset: 3.25rem;
+    --node-size: 3.5rem;
     --orbit-radius: clamp(7rem, 31vw, 8.25rem);
-  }
-
-  .nodePosition,
-  .node {
-    height: 3.25rem;
-    width: 3.25rem;
   }
 
   .nodeLabel {
@@ -293,12 +248,38 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .nodePosition {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
+@media (min-width: 1200px) {
+  .stage {
+    --callout-offset: 4.25rem;
+    --node-size: 5rem;
+    --orbit-radius: 15rem;
+    max-width: 41rem;
   }
 
+  .nodeIcon svg {
+    height: 1.7rem;
+    width: 1.7rem;
+  }
+
+  .callout {
+    width: 17.5rem;
+  }
+
+  .calloutBody {
+    gap: 0.8rem;
+    padding: 1.5rem;
+  }
+
+  .callout h3 {
+    font-size: 1.3rem;
+  }
+
+  .callout p {
+    font-size: 0.94rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .node {
     transition-duration: 0.01ms;
   }

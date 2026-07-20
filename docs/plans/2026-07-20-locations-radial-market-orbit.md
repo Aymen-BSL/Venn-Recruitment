@@ -4,7 +4,7 @@
 
 **Goal:** Replace the Locations section key-area table with an accessible orbital visualization adapted to Venn Recruitment's 3 market areas.
 
-**Architecture:** Keep LocationsSection as a server component and pass serializable market data into a small client-side RadialMarketOrbit component. Use CSS animations for continuous orbital motion and React state only for selecting the active market. Anchor the active callout inward from its selected node so the relationship remains visible without colliding with the orbital labels.
+**Architecture:** Keep LocationsSection as a server component and pass serializable market data into a small client-side RadialMarketOrbit component. Use one GSAP-controlled shared rotation value so a selected node can move consistently to the top before its attached callout opens. React state controls selection and dismissal while CSS handles the orbital geometry and responsive sizing.
 
 **Tech Stack:** Next.js 16, React 19, TypeScript, CSS Modules, Lucide React
 
