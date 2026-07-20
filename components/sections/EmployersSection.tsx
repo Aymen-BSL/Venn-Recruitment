@@ -70,7 +70,7 @@ export function EmployersSection() {
             {employerPoints.map((point) => (
               <li className="employers-point" key={point.title}>
                 <span className="employers-point-icon" aria-hidden="true">
-                  <point.icon size={20} strokeWidth={1.8} />
+                  <point.icon size={23} strokeWidth={1.75} />
                 </span>
                 <div className="employers-point-copy">
                   <h3>{point.title}</h3>
