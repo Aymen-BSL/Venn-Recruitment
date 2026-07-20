@@ -38,7 +38,6 @@
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 13.5rem;
   padding: clamp(1.4rem, 2.5vw, 2rem);
   transition:
@@ -69,6 +68,10 @@
 @media (min-width: 700px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card h3 {
+    min-height: 2.3em;
   }
 }
 
