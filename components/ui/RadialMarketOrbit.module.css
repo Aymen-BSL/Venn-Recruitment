@@ -7,10 +7,11 @@
   --node-size: 4.25rem;
   --orbit-radius: clamp(8.5rem, 18vw, 14rem);
   --orbit-rotation: 0deg;
+  --pulse-scale: 2.5;
   aspect-ratio: 1;
   isolation: isolate;
   margin-inline: auto;
-  max-width: 38rem;
+  max-width: 36.5rem;
   position: relative;
   width: 100%;
 }
@@ -46,9 +47,8 @@
   border-radius: 50%;
   color: white;
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
   height: 5.75rem;
+  isolation: isolate;
   justify-content: center;
   left: 50%;
   position: absolute;
@@ -61,15 +61,52 @@
   z-index: 2;
 }
 
+.centerCore::before,
+.centerCore::after {
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.centerCore::before {
+  animation: center-pulse 3.4s ease-out infinite;
+  border: 1px solid rgb(255 255 255 / 0.38);
+  inset: 0;
+}
+
+.centerCore::after {
+  animation: center-inner-breathe 3.4s ease-in-out infinite;
+  background: rgb(255 255 255 / 0.09);
+  inset: 0.55rem;
+}
+
+.centerMark {
+  align-items: center;
+  animation: center-mark-breathe 3.4s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+  z-index: 1;
+}
+
 .stage[data-active="true"] .centerCore {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.82);
 }
 
-.centerCore span {
+.centerMark > span {
   color: rgb(255 255 255 / 0.72);
   font-size: 0.68rem;
   font-weight: 650;
+}
+
+.stage[data-active="true"] .centerMark,
+.stage[data-active="true"] .centerCore::before,
+.stage[data-active="true"] .centerCore::after {
+  animation-play-state: paused;
 }
 
 .nodePosition {
@@ -218,11 +255,54 @@
   }
 }
 
+@keyframes center-mark-breathe {
+  0%,
+  100% {
+    opacity: 0.82;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.045);
+  }
+}
+
+@keyframes center-inner-breathe {
+  0%,
+  100% {
+    opacity: 0.48;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes center-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  16% {
+    opacity: 0.42;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(var(--pulse-scale));
+  }
+}
+
 @media (max-width: 480px) {
   .stage {
     --callout-offset: 3.25rem;
     --node-size: 3.5rem;
     --orbit-radius: clamp(7rem, 31vw, 8.25rem);
+    --pulse-scale: 1.65;
   }
 
   .nodeLabel {
@@ -252,8 +332,9 @@
   .stage {
     --callout-offset: 4.25rem;
     --node-size: 5rem;
-    --orbit-radius: 15rem;
-    max-width: 41rem;
+    --orbit-radius: 14.5rem;
+    --pulse-scale: 3;
+    max-width: 39.5rem;
   }
 
   .nodeIcon svg {
@@ -280,6 +361,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .centerMark,
+  .centerCore::before,
+  .centerCore::after {
+    animation: none;
+  }
+
   .node {
     transition-duration: 0.01ms;
   }

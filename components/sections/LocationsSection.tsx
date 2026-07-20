@@ -43,7 +43,8 @@ export function LocationsSection() {
                 className={`section-title ${styles.title}`}
                 id="locations-title"
               >
-                Local understanding. International opportunity.
+                <span>Local understanding.</span>
+                <span>International opportunity.</span>
               </h2>
             </header>
 

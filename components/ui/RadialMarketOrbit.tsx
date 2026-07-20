@@ -226,8 +226,10 @@ export function RadialMarketOrbit({ items, label }: RadialMarketOrbitProps) {
         <span className={styles.orbitRing} aria-hidden="true" />
 
         <div className={styles.centerCore} aria-hidden="true">
-          <Globe2 size={22} strokeWidth={1.6} />
-          <span>Markets</span>
+          <span className={styles.centerMark}>
+            <Globe2 size={22} strokeWidth={1.6} />
+            <span>Markets</span>
+          </span>
         </div>
 
         {items.map((item, index) => {

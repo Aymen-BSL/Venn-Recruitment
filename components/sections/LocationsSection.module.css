@@ -4,11 +4,16 @@
 
 .layout {
   display: grid;
-  gap: clamp(3.5rem, 8vw, 8rem);
+  gap: clamp(2.25rem, 5vw, 3.5rem);
 }
 
 .content {
   max-width: 42rem;
+}
+
+.title span {
+  display: block;
+  white-space: nowrap;
 }
 
 .description {
@@ -43,7 +48,12 @@
   .layout {
     align-items: center;
     gap: clamp(2.5rem, 4vw, 4.5rem);
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   }
+}
 
+@media (max-width: 899px) {
+  .title {
+    font-size: clamp(1.75rem, 7vw, 3rem);
+  }
 }
