@@ -16,7 +16,7 @@
 }
 
 .description {
-  color: var(--copy-muted-inverse);
+  color: var(--copy-muted);
   display: grid;
   font-size: var(--section-copy-size);
   gap: 0.9rem;
@@ -34,7 +34,7 @@
 }
 
 .areasLabel {
-  color: var(--sand);
+  color: var(--green);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -43,7 +43,7 @@
 }
 
 .areas ul {
-  border: 1px solid rgb(255 255 255 / 0.28);
+  border: 1px solid color-mix(in srgb, var(--green) 32%, transparent);
   border-radius: var(--radius-md);
   list-style: none;
   margin: 0;
@@ -56,7 +56,7 @@
 }
 
 .areas li + li {
-  border-top: 1px solid rgb(255 255 255 / 0.2);
+  border-top: 1px solid color-mix(in srgb, var(--green) 22%, transparent);
 }
 
 .areas h3 {
@@ -68,7 +68,7 @@
 }
 
 .areas li p {
-  color: rgb(255 255 255 / 0.62);
+  color: var(--copy-muted);
   line-height: 1.58;
   margin: 0.75rem 0 0;
   max-width: 34rem;

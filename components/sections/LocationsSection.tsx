@@ -31,7 +31,7 @@ export function LocationsSection() {
         <Reveal className={styles.layout}>
           <div className={styles.content}>
             <header className={styles.heading}>
-              <p className="eyebrow text-sand">Locations and Markets</p>
+              <p className="eyebrow text-green">Locations and Markets</p>
               <h2 className={`section-title ${styles.title}`} id="locations-title">
                 Local understanding. International opportunity.
               </h2>

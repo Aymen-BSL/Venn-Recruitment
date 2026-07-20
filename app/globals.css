@@ -19,7 +19,7 @@
   --ink: #1e1f22;
   --green: #217b6d;
   --green-dark: #145b51;
-  --green-surface: #174b45;
+  --green-surface: #e1ece9;
   --sand: #f2d7af;
   --violet: #7268b6;
   --line: color-mix(in srgb, var(--ink) 14%, transparent);
@@ -384,7 +384,7 @@ textarea.form-control {
 
 .green-section {
   background: var(--green-surface);
-  color: white;
+  color: var(--ink);
 }
 
 .sand-section {
