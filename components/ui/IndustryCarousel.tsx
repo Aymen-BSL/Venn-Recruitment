@@ -1,0 +1,185 @@
+"use client";
+
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+
+import styles from "./IndustryCarousel.module.css";
+
+const industries = [
+  {
+    name: "Corporate & Professional Services",
+    description: "Professionals for essential corporate and specialist functions.",
+    image: "/media/venn-hero-poster.jpg",
+    imageAlt: "Professionals working together in a modern office",
+  },
+  {
+    name: "Technology & Digital",
+    description: "Talent for an increasingly connected, technology-driven world.",
+    image: "/media/candidates/international-opportunities.png",
+    imageAlt: "Contemporary technology and business district architecture",
+  },
+  {
+    name: "Engineering & Technical",
+    description: "Technical specialists with practical, role-ready experience.",
+    image: "/media/candidates/guided-support.png",
+    imageAlt: "Structural engineering details in a modern development",
+  },
+  {
+    name: "Construction & Real Estate",
+    description: "People supporting the region's continued development.",
+    image: "/media/candidates/opportunity-fit.png",
+    imageAlt: "Modern workplace interior shaped by regional architecture",
+  },
+  {
+    name: "Hospitality & Tourism",
+    description: "Service-focused professionals for growing hospitality markets.",
+    image: "/media/candidates/guided-support.png",
+    imageAlt: "Welcoming landscaped entrance to a contemporary destination",
+  },
+  {
+    name: "Retail & Consumer",
+    description: "Talent that understands customers, operations and growth.",
+    image: "/media/venn-hero-poster.jpg",
+    imageAlt: "Collaborative team reviewing work together",
+  },
+  {
+    name: "Logistics & Supply Chain",
+    description: "Professionals who keep goods, services and operations moving.",
+    image: "/media/candidates/international-opportunities.png",
+    imageAlt: "Connected transport and commercial infrastructure",
+  },
+  {
+    name: "Healthcare",
+    description: "Professionals committed to quality care and meaningful impact.",
+    image: "/media/candidates/opportunity-fit.png",
+    imageAlt: "Calm professional environment designed around care and focus",
+  },
+] as const;
+
+function getItemsPerPage() {
+  if (window.matchMedia("(min-width: 1100px)").matches) {
+    return 3;
+  }
+
+  if (window.matchMedia("(min-width: 700px)").matches) {
+    return 2;
+  }
+
+  return 1;
+}
+
+export function IndustryCarousel() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(1);
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      setItemsPerPage(getItemsPerPage());
+    };
+
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
+
+  const pages = useMemo(() => {
+    return Array.from(
+      { length: Math.ceil(industries.length / itemsPerPage) },
+      (_, pageIndex) => {
+        const start = pageIndex * itemsPerPage;
+        return industries.slice(start, start + itemsPerPage);
+      },
+    );
+  }, [itemsPerPage]);
+
+  const activePage = Math.min(currentPage, pages.length - 1);
+
+  const showPreviousPage = () => {
+    setCurrentPage(Math.max(0, activePage - 1));
+  };
+
+  const showNextPage = () => {
+    setCurrentPage(Math.min(pages.length - 1, activePage + 1));
+  };
+
+  return (
+    <div
+      aria-label="Industries served"
+      aria-roledescription="carousel"
+      className={styles.carousel}
+      role="region"
+    >
+      <div className={styles.viewport}>
+        <div
+          className={styles.track}
+          style={{ transform: `translateX(-${activePage * 100}%)` }}
+        >
+          {pages.map((page, pageIndex) => (
+            <div
+              aria-hidden={pageIndex !== activePage}
+              className={styles.page}
+              key={page.map((industry) => industry.name).join("-")}
+            >
+              {page.map((industry) => (
+                <article className={styles.card} key={industry.name}>
+                  <div className={styles.imageFrame}>
+                    <Image
+                      alt={industry.imageAlt}
+                      className={styles.image}
+                      fill
+                      sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 88vw"
+                      src={industry.image}
+                    />
+                  </div>
+                  <div className={styles.cardContent}>
+                    <h3>{industry.name}</h3>
+                    <p>{industry.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        aria-label="Show previous industries"
+        className={`${styles.control} ${styles.previous}`}
+        disabled={activePage === 0}
+        onClick={showPreviousPage}
+        type="button"
+      >
+        <ArrowLeft aria-hidden="true" size={21} strokeWidth={1.8} />
+      </button>
+
+      <button
+        aria-label="Show next industries"
+        className={`${styles.control} ${styles.next}`}
+        disabled={activePage === pages.length - 1}
+        onClick={showNextPage}
+        type="button"
+      >
+        <ArrowRight aria-hidden="true" size={21} strokeWidth={1.8} />
+      </button>
+
+      <div aria-label="Choose industry page" className={styles.pagination} role="group">
+        {pages.map((page, pageIndex) => (
+          <button
+            aria-label={`Show industry page ${pageIndex + 1}`}
+            aria-pressed={pageIndex === activePage}
+            className={styles.dot}
+            key={page.map((industry) => industry.name).join("-")}
+            onClick={() => setCurrentPage(pageIndex)}
+            type="button"
+          />
+        ))}
+      </div>
+
+      <p aria-live="polite" className={styles.status}>
+        Industry page {activePage + 1} of {pages.length}
+      </p>
+    </div>
+  );
+}

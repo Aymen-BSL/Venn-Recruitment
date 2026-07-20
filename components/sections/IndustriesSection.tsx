@@ -1,49 +1,7 @@
 import { Reveal } from "@/components/animation/Reveal";
 import { Container } from "@/components/ui/Container";
+import { IndustryCarousel } from "@/components/ui/IndustryCarousel";
 import styles from "./IndustriesSection.module.css";
-
-const industries = [
-  {
-    name: "Corporate & Professional Services",
-    description:
-      "Professionals for essential corporate and specialist functions.",
-  },
-  {
-    name: "Technology & Digital",
-    description:
-      "Talent for an increasingly connected, technology-driven world.",
-  },
-  {
-    name: "Engineering & Technical",
-    description:
-      "Technical specialists with practical, role-ready experience.",
-  },
-  {
-    name: "Construction & Real Estate",
-    description:
-      "People supporting the region's continued development.",
-  },
-  {
-    name: "Hospitality & Tourism",
-    description:
-      "Service-focused professionals for growing hospitality markets.",
-  },
-  {
-    name: "Retail & Consumer",
-    description:
-      "Talent that understands customers, operations and growth.",
-  },
-  {
-    name: "Logistics & Supply Chain",
-    description:
-      "Professionals who keep goods, services and operations moving.",
-  },
-  {
-    name: "Healthcare",
-    description:
-      "Professionals committed to quality care and meaningful impact.",
-  },
-];
 
 export function IndustriesSection() {
   return (
@@ -75,14 +33,7 @@ export function IndustriesSection() {
             </div>
           </header>
 
-          <div className={styles.grid}>
-            {industries.map((industry) => (
-              <article className={styles.card} key={industry.name}>
-                <h3>{industry.name}</h3>
-                <p>{industry.description}</p>
-              </article>
-            ))}
-          </div>
+          <IndustryCarousel />
         </Reveal>
       </Container>
     </section>

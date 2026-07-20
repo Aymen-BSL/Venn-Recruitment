@@ -26,63 +26,8 @@
   margin: 0;
 }
 
-.grid {
-  display: grid;
-  gap: 0.9rem;
-  margin-top: clamp(3.5rem, 7vw, 6rem);
-}
-
-.card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  min-height: 13.5rem;
-  padding: clamp(1.4rem, 2.5vw, 2rem);
-  transition:
-    background-color 180ms ease,
-    border-color 180ms ease;
-}
-
-.card:hover {
-  background: color-mix(in srgb, var(--green) 4%, white);
-  border-color: color-mix(in srgb, var(--green) 55%, transparent);
-}
-
-.card h3 {
-  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
-  font-weight: 550;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 0;
-  text-wrap: balance;
-}
-
-.card p {
-  color: rgb(30 31 34 / 0.58);
-  line-height: 1.55;
-  margin: 2.5rem 0 0;
-}
-
-@media (min-width: 700px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .card h3 {
-    min-height: 2.3em;
-  }
-}
-
 @media (min-width: 900px) {
   .introduction {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
-  }
-}
-
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
