@@ -208,13 +208,15 @@
 }
 
 .employers-point-copy {
+  display: grid;
+  gap: 0.9rem;
   min-width: 0;
 }
 
 .employers-point p {
   color: rgb(255 255 255 / 0.58);
   line-height: 1.6;
-  margin: 0.9rem 0 0;
+  margin: 0;
   max-width: 25rem;
 }
 
@@ -595,10 +597,6 @@
 
   .employers-point {
     padding-right: clamp(1.5rem, 3vw, 3rem);
-  }
-
-  .employers-point h3 {
-    min-height: 2.3em;
   }
 
   .employers-point + .employers-point {
