@@ -84,11 +84,6 @@ export function IndustriesSection() {
               </article>
             ))}
           </div>
-
-          <p className={styles.closing}>
-            Different industries. Different needs. The same focus on finding the right
-            match.
-          </p>
         </Reveal>
       </Container>
     </section>
