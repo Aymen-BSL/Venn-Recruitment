@@ -7,17 +7,17 @@ const candidateBenefits = [
   {
     title: "Opportunities that fit",
     description:
-      "We focus on roles that align with your experience, ambitions and career goals.",
+      "Roles aligned with your experience, ambitions and career goals.",
   },
   {
     title: "Support at every step",
     description:
-      "From application to interview and offer, we help you stay informed and prepared.",
+      "Stay informed and prepared from application through offer.",
   },
   {
     title: "Local and international opportunities",
     description:
-      "Explore career opportunities across the Middle East and international markets.",
+      "Explore roles across the Middle East and international markets.",
   },
 ];
 
@@ -40,13 +40,11 @@ export function CandidatesSection() {
 
             <div className={styles.description}>
               <p>
-                Finding the right role takes more than applying to every vacancy. We take
-                the time to understand your experience, ambitions and what you want from
-                your next move.
+                The right role is not found by applying everywhere. We understand your
+                experience, ambitions and what matters in your next move.
               </p>
               <p>
-                Venn Recruitment connects you with carefully selected opportunities that
-                align with your skills, goals and preferred direction.
+                Then we connect you with opportunities that fit your skills and goals.
               </p>
             </div>
 

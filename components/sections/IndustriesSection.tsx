@@ -6,42 +6,42 @@ const industries = [
   {
     name: "Corporate & Professional Services",
     description:
-      "Connecting businesses with professionals across essential corporate and specialist functions.",
+      "Professionals for essential corporate and specialist functions.",
   },
   {
     name: "Technology & Digital",
     description:
-      "Helping companies find talent for an increasingly connected and technology-driven world.",
+      "Talent for an increasingly connected, technology-driven world.",
   },
   {
     name: "Engineering & Technical",
     description:
-      "Matching skilled professionals with roles that require technical expertise and practical experience.",
+      "Technical specialists with practical, role-ready experience.",
   },
   {
     name: "Construction & Real Estate",
     description:
-      "Supporting the people and businesses contributing to the region's continued development.",
+      "People supporting the region's continued development.",
   },
   {
     name: "Hospitality & Tourism",
     description:
-      "Connecting service-focused professionals with opportunities across growing hospitality markets.",
+      "Service-focused professionals for growing hospitality markets.",
   },
   {
     name: "Retail & Consumer",
     description:
-      "Helping businesses find the talent needed to understand customers, strengthen operations and support growth.",
+      "Talent that understands customers, operations and growth.",
   },
   {
     name: "Logistics & Supply Chain",
     description:
-      "Matching professionals with organisations responsible for keeping goods, services and operations moving.",
+      "Professionals who keep goods, services and operations moving.",
   },
   {
     name: "Healthcare",
     description:
-      "Connecting healthcare organisations with professionals committed to quality, care and meaningful impact.",
+      "Professionals committed to quality care and meaningful impact.",
   },
 ];
 
@@ -64,14 +64,13 @@ export function IndustriesSection() {
 
             <div className={styles.description}>
               <p>
-                Every industry has its own challenges, expectations and talent
-                requirements. We take the time to understand each sector so we can
-                connect businesses with professionals who have the right experience,
-                perspective and potential.
+                Each industry has distinct challenges and talent needs. We learn what
+                matters in every sector before connecting businesses with experienced
+                professionals.
               </p>
               <p>
-                Our approach combines industry awareness with local market knowledge and
-                international reach.
+                Our approach combines sector awareness, local knowledge and international
+                reach.
               </p>
             </div>
           </header>

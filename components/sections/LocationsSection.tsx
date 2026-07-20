@@ -6,17 +6,17 @@ const marketAreas = [
   {
     title: "Across the Middle East",
     description:
-      "Supporting employers and candidates across established and growing markets throughout the region.",
+      "Supporting employers and candidates across established and growing regional markets.",
   },
   {
     title: "International connections",
     description:
-      "Helping businesses access talent from wider global markets and connecting professionals with opportunities beyond their home country.",
+      "Connecting businesses with global talent and professionals with opportunities beyond their home country.",
   },
   {
     title: "Market-aware recruitment",
     description:
-      "Considering the location, working environment and expectations surrounding every opportunity, not only the role itself.",
+      "Considering location, work environment and expectations alongside the role itself.",
   },
 ];
 
@@ -39,13 +39,12 @@ export function LocationsSection() {
 
             <div className={styles.description}>
               <p>
-                Recruitment across borders requires more than access to candidates and
-                vacancies. It requires an understanding of local markets, business
-                expectations and the ambitions of people considering their next move.
+                Cross-border recruitment depends on understanding local markets, business
+                expectations and what candidates want from their next move.
               </p>
               <p>
                 Venn Recruitment connects companies and professionals across the Middle
-                East while supporting opportunities that extend beyond the region.
+                East and beyond.
               </p>
             </div>
           </div>

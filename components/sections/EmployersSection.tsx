@@ -6,17 +6,17 @@ const employerPoints = [
   {
     title: "A deeper understanding",
     description:
-      "We look beyond the vacancy to understand your team, culture and business goals.",
+      "We learn how the role fits your team, culture and goals.",
   },
   {
     title: "Carefully matched talent",
     description:
-      "We focus on relevant, qualified candidates rather than overwhelming you with unsuitable profiles.",
+      "We introduce relevant, qualified candidates instead of unsuitable profiles.",
   },
   {
     title: "Local and international reach",
     description:
-      "We help you access talent across the Middle East and international markets.",
+      "Access talent across the Middle East and international markets.",
   },
 ];
 
@@ -39,13 +39,12 @@ export function EmployersSection() {
           <div className="employers-detail">
             <div className="employers-description">
               <p>
-                Hiring the right person takes more than matching a CV to a job
-                description. We take the time to understand your business, the role and
-                the qualities needed for long-term success.
+                Hiring well takes more than matching a CV to a job description. We learn
+                what the role requires and what success looks like for your team and
+                business.
               </p>
               <p>
-                Venn Recruitment connects you with carefully selected professionals whose
-                skills, experience and ambitions align with your needs.
+                Then we connect you with professionals whose skills and ambitions align.
               </p>
             </div>
 

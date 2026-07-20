@@ -12,13 +12,12 @@ export function AboutSection() {
             <h2 className="section-title">Recruitment built around the right fit.</h2>
             <div className="about-description">
               <p>
-                Venn Recruitment was created around a simple idea: the best placements
-                happen where a company&apos;s needs and a candidate&apos;s goals come together.
+                Venn Recruitment was built on a simple idea: the best placements happen
+                when a company&apos;s needs and a candidate&apos;s goals align.
               </p>
               <p>
-                We combine local market knowledge, international reach and a people-first
-                approach to connect businesses with professionals who are right for the
-                role, the team and the future.
+                We combine market knowledge, international reach and a people-first
+                approach to connect the right professionals with the right businesses.
               </p>
             </div>
           </div>
