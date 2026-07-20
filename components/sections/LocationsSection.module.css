@@ -57,3 +57,9 @@
     font-size: clamp(1.75rem, 7vw, 3rem);
   }
 }
+
+@media (min-width: 481px) and (max-width: 899px) {
+  .layout {
+    gap: 1rem;
+  }
+}

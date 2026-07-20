@@ -286,12 +286,26 @@
   }
 }
 
+@media (max-width: 899px) {
+  .orbitRing::after {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 899px) {
+  .stage {
+    --orbit-radius: clamp(10.5rem, 29vw, 13rem);
+    --pulse-scale: 2.2;
+    max-width: 30rem;
+  }
+}
+
 @media (max-width: 480px) {
   .stage {
     --callout-offset: 3.25rem;
     --node-size: 3.5rem;
     --orbit-radius: clamp(7rem, 31vw, 8.25rem);
-    --pulse-scale: 1.28;
+    --pulse-scale: 1.65;
   }
 
   .nodeLabel {
