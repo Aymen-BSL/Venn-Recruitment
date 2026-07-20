@@ -170,6 +170,8 @@
   }
 
   .cardContent h3 {
+    align-items: flex-end;
+    display: flex;
     min-height: 2.3em;
   }
 }
