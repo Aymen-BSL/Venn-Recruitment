@@ -23,7 +23,7 @@ const marketAreas = [
 export function LocationsSection() {
   return (
     <section
-      className={`page-section green-section locations-section ${styles.section}`}
+      className={`page-section violet-section locations-section ${styles.section}`}
       id="locations"
       aria-labelledby="locations-title"
     >
@@ -31,26 +31,30 @@ export function LocationsSection() {
         <Reveal className={styles.layout}>
           <div className={styles.content}>
             <header className={styles.heading}>
-              <p className="eyebrow text-sand">Locations and Markets</p>
-              <h2 className={`section-title ${styles.title}`} id="locations-title">
+              <p className="eyebrow text-paper">Locations and Markets</p>
+              <h2
+                className={`section-title ${styles.title}`}
+                id="locations-title"
+              >
                 Local understanding. International opportunity.
               </h2>
             </header>
 
             <div className={styles.description}>
               <p>
-                Cross-border recruitment depends on understanding local markets, business
-                expectations and what candidates want from their next move.
+                Cross-border recruitment depends on understanding local markets,
+                business expectations and what candidates want from their next
+                move.
               </p>
               <p>
-                Venn Recruitment connects companies and professionals across the Middle
-                East and beyond.
+                Venn Recruitment connects companies and professionals across the
+                Middle East and beyond.
               </p>
             </div>
           </div>
 
           <div className={styles.areas}>
-            <p className={styles.areasLabel}>Key areas</p>
+            <p className={styles.areasLabel_section_6}>Key areas</p>
             <ul aria-label="Venn Recruitment market coverage">
               {marketAreas.map((area) => (
                 <li key={area.title}>
