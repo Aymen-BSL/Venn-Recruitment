@@ -12,7 +12,7 @@ export function HomeSection() {
       <HeroMotion>
         <Container className="hero-container">
           <div className="hero-copy" data-hero-copy>
-            <p className="hero-eyebrow">
+            <p className="eyebrow hero-eyebrow">
               Recruitment across the Middle East and beyond
             </p>
             <h1>Where the right people and opportunities meet</h1>

@@ -16,8 +16,11 @@ import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
 export default function Page() {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to Main Content
+      </a>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <HomeSection />
         <AboutSection />
         <EmployersSection />

@@ -1,4 +1,3 @@
-.candidate-layout,
 .form-section-layout,
 .locations-layout,
 .why-layout,
@@ -26,19 +25,15 @@
 }
 
 .about-copy .section-title {
-  font-size: clamp(2.65rem, 3.8vw, 3.75rem);
-  font-weight: 540;
-  letter-spacing: -0.02em;
-  line-height: 1;
   max-width: 22ch;
 }
 
 .about-description {
-  color: rgb(30 31 34 / 0.66);
+  color: var(--copy-muted);
   display: grid;
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-size: var(--section-copy-size);
   gap: 0.8rem;
-  line-height: 1.62;
+  line-height: var(--copy-leading);
   margin-top: clamp(1.4rem, 2.5vw, 2rem);
   max-width: 36rem;
 }
@@ -147,10 +142,6 @@
 }
 
 .employers-heading .section-title {
-  font-size: clamp(2.75rem, 4.6vw, 4.65rem);
-  font-weight: 540;
-  letter-spacing: -0.02em;
-  line-height: 1;
   max-width: 15ch;
 }
 
@@ -159,11 +150,11 @@
 }
 
 .employers-description {
-  color: rgb(255 255 255 / 0.68);
+  color: var(--copy-muted-inverse);
   display: grid;
-  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+  font-size: var(--section-copy-size);
   gap: 0.9rem;
-  line-height: 1.6;
+  line-height: var(--copy-leading);
   max-width: 36rem;
 }
 
@@ -209,55 +200,6 @@
   line-height: 1.6;
   margin: 0.8rem 0 0;
   max-width: 25rem;
-}
-
-.dark-card {
-  background: rgb(255 255 255 / 0.055);
-  border-color: rgb(255 255 255 / 0.14);
-  color: white;
-}
-
-.dark-card .placeholder-copy {
-  color: rgb(255 255 255 / 0.62);
-}
-
-.candidate-list {
-  display: grid;
-}
-
-.candidate-item {
-  align-items: flex-start;
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: auto 1fr;
-  padding-block: 1.5rem;
-}
-
-.candidate-item:first-child {
-  padding-top: 0;
-}
-
-.candidate-item > svg {
-  color: var(--green);
-  margin-top: 0.25rem;
-}
-
-.candidate-item h3,
-.candidate-item p {
-  margin: 0;
-}
-
-.candidate-item h3 {
-  font-family: var(--font-sans), Arial, sans-serif;
-  font-size: 1.65rem;
-  font-weight: 500;
-}
-
-.candidate-item p {
-  color: rgb(30 31 34 / 0.58);
-  line-height: 1.6;
-  margin-top: 0.45rem;
 }
 
 .form-panel {
@@ -306,42 +248,6 @@
   font-weight: 700;
   max-width: 6rem;
   text-align: center;
-}
-
-.industry-grid {
-  display: grid;
-  gap: 1px;
-  margin-top: clamp(3rem, 7vw, 6rem);
-}
-
-.industry-card {
-  background: white;
-  min-height: 15rem;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.industry-card:hover {
-  background: var(--green);
-  color: white;
-  transform: translateY(-4px);
-}
-
-.industry-card h3 {
-  font-family: var(--font-sans), Arial, sans-serif;
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin: 3rem 0 0.65rem;
-}
-
-.industry-card p {
-  color: currentColor;
-  line-height: 1.6;
-  margin: 0;
-  opacity: 0.62;
 }
 
 .market-list {
@@ -693,10 +599,6 @@
 }
 
 @media (min-width: 640px) {
-  .industry-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .process-grid,
   .footer-contact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -755,7 +657,6 @@
     width: 100%;
   }
 
-  .candidate-layout,
   .locations-layout,
   .why-layout,
   .faq-layout,
@@ -779,9 +680,6 @@
     grid-template-columns: minmax(30rem, 1.2fr) minmax(0, 0.8fr);
   }
 
-  .industry-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (min-width: 900px) and (max-height: 720px) {

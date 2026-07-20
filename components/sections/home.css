@@ -53,19 +53,15 @@
 }
 
 .hero-eyebrow {
-  font-size: 0.74rem;
-  font-weight: 650;
-  letter-spacing: 0.11em;
-  margin: 0 0 1.1rem;
-  text-transform: uppercase;
+  color: white;
 }
 
 .hero-copy h1 {
   font-family: var(--font-sans), Arial, sans-serif;
   font-size: clamp(2.9rem, min(5vw, 9svh), 5rem);
-  font-weight: 540;
-  letter-spacing: -0.02em;
-  line-height: 1;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-tracking);
+  line-height: var(--heading-leading);
   margin: 0;
   max-width: 23ch;
   text-wrap: balance;
@@ -73,7 +69,7 @@
 
 .hero-description {
   color: rgb(255 255 255 / 0.82);
-  font-size: clamp(0.98rem, 1.18vw, 1.08rem);
+  font-size: var(--section-copy-size);
   line-height: 1.5;
   margin: clamp(1rem, 2.4svh, 1.5rem) 0 0;
   max-width: 41rem;
