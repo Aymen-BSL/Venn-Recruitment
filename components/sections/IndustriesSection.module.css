@@ -41,6 +41,14 @@
   justify-content: space-between;
   min-height: 13.5rem;
   padding: clamp(1.4rem, 2.5vw, 2rem);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.card:hover {
+  background: color-mix(in srgb, var(--green) 4%, white);
+  border-color: color-mix(in srgb, var(--green) 55%, transparent);
 }
 
 .card h3 {
