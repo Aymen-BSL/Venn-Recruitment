@@ -214,7 +214,7 @@
 .employers-point p {
   color: rgb(255 255 255 / 0.58);
   line-height: 1.6;
-  margin: 0.65rem 0 0;
+  margin: 0.9rem 0 0;
   max-width: 25rem;
 }
 
@@ -639,7 +639,6 @@
   .form-section-reverse {
     grid-template-columns: minmax(30rem, 1.2fr) minmax(0, 0.8fr);
   }
-
 }
 
 @media (min-width: 900px) and (max-height: 720px) {
