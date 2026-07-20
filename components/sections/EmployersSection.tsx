@@ -71,10 +71,6 @@ export function EmployersSection() {
               </li>
             ))}
           </ul>
-
-          <p className="employers-closing">
-            The right hire does more than fill a role. They strengthen your business.
-          </p>
         </Reveal>
       </Container>
     </section>

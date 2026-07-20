@@ -211,16 +211,6 @@
   max-width: 25rem;
 }
 
-.employers-closing {
-  color: var(--sand);
-  font-size: clamp(1.35rem, 2.2vw, 2rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin: 0;
-  max-width: 34ch;
-}
-
 .dark-card {
   background: rgb(255 255 255 / 0.055);
   border-color: rgb(255 255 255 / 0.14);
@@ -746,10 +736,6 @@
   .employers-point + .employers-point {
     border-left: 1px solid rgb(255 255 255 / 0.18);
     padding-left: clamp(2rem, 4vw, 4rem);
-  }
-
-  .employers-closing {
-    grid-column: 1 / 10;
   }
 
   .about-section {
