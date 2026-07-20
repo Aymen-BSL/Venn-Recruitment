@@ -318,7 +318,10 @@
   background: white;
   min-height: 15rem;
   padding: clamp(1.5rem, 3vw, 2.5rem);
-  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .industry-card:hover {
@@ -615,7 +618,9 @@
   display: flex;
   height: 3.5rem;
   justify-content: center;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
   width: 3.5rem;
 }
 
@@ -797,5 +802,4 @@
   .about-intersection {
     max-width: 41rem;
   }
-
 }

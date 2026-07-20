@@ -137,7 +137,11 @@ textarea:focus-visible {
   min-height: 3.25rem;
   padding: 0.8rem 1.25rem;
   text-decoration: none;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .button:hover {
@@ -165,6 +169,10 @@ textarea:focus-visible {
 .button-light {
   background: white;
   color: var(--ink);
+}
+
+.button-light:hover {
+  background: var(--sand);
 }
 
 .button-text {
@@ -226,7 +234,9 @@ textarea:focus-visible {
   color: var(--ink);
   min-height: 3.4rem;
   padding: 0.85rem 1rem;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
   width: 100%;
 }
 
@@ -270,7 +280,9 @@ textarea.form-control {
   justify-content: center;
   min-height: 3.4rem;
   padding: 0.85rem 1.25rem;
-  transition: background-color 180ms ease, transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
 .form-submit:hover:not(:disabled) {
