@@ -7,8 +7,7 @@ const employerPoints = [
   {
     icon: ScanSearch,
     title: "A deeper understanding",
-    description:
-      "We learn how the role fits your team, culture and goals.",
+    description: "We learn how the role fits your team, culture and goals.",
   },
   {
     icon: BadgeCheck,
@@ -18,7 +17,7 @@ const employerPoints = [
   },
   {
     icon: Globe2,
-    title: "Local and international reach",
+    title: "Local & international reach",
     description:
       "Access talent across the Middle East and international markets.",
   },
@@ -43,12 +42,13 @@ export function EmployersSection() {
           <div className="employers-detail">
             <div className="employers-description">
               <p>
-                Hiring well takes more than matching a CV to a job description. We learn
-                what the role requires and what success looks like for your team and
-                business.
+                Hiring well takes more than matching a CV to a job description.
+                We learn what the role requires and what success looks like for
+                your team and business.
               </p>
               <p>
-                Then we connect you with professionals whose skills and ambitions align.
+                Then we connect you with professionals whose skills and
+                ambitions align.
               </p>
             </div>
 
@@ -66,11 +66,14 @@ export function EmployersSection() {
             </div>
           </div>
 
-          <ul className="employers-points" aria-label="How Venn Recruitment supports employers">
+          <ul
+            className="employers-points"
+            aria-label="How Venn Recruitment supports employers"
+          >
             {employerPoints.map((point) => (
               <li className="employers-point" key={point.title}>
                 <span className="employers-point-icon" aria-hidden="true">
-                  <point.icon size={23} strokeWidth={1.75} />
+                  <point.icon size={26} strokeWidth={1.7} />
                 </span>
                 <div className="employers-point-copy">
                   <h3>{point.title}</h3>
