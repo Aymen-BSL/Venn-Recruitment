@@ -42,6 +42,7 @@
 
 .centerCore {
   align-items: center;
+  animation: center-color-breathe 3.4s ease-in-out infinite;
   background: rgb(255 255 255 / 0.12);
   border: 1px solid rgb(255 255 255 / 0.3);
   border-radius: 50%;
@@ -61,25 +62,15 @@
   z-index: 2;
 }
 
-.centerCore::before,
-.centerCore::after {
+.centerCore::before {
+  animation: center-pulse 2.1s ease-out infinite;
+  border: 1px solid rgb(255 255 255 / 0.38);
   border-radius: inherit;
   content: "";
+  inset: 0;
   pointer-events: none;
   position: absolute;
   z-index: 0;
-}
-
-.centerCore::before {
-  animation: center-pulse 3.4s ease-out infinite;
-  border: 1px solid rgb(255 255 255 / 0.38);
-  inset: 0;
-}
-
-.centerCore::after {
-  animation: center-color-breathe 3.4s ease-in-out infinite;
-  background-color: rgb(255 255 255 / 0.06);
-  inset: 0.55rem;
 }
 
 .centerMark {
@@ -103,9 +94,9 @@
   font-weight: 650;
 }
 
+.stage[data-active="true"] .centerCore,
 .stage[data-active="true"] .centerMark,
-.stage[data-active="true"] .centerCore::before,
-.stage[data-active="true"] .centerCore::after {
+.stage[data-active="true"] .centerCore::before {
   animation-play-state: paused;
 }
 
@@ -269,11 +260,11 @@
 @keyframes center-color-breathe {
   0%,
   100% {
-    background-color: rgb(255 255 255 / 0.05);
+    background-color: rgb(255 255 255 / 0.07);
   }
 
   50% {
-    background-color: rgb(255 255 255 / 0.16);
+    background-color: rgb(255 255 255 / 0.18);
   }
 }
 
@@ -362,8 +353,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .centerMark,
-  .centerCore::before,
-  .centerCore::after {
+  .centerCore,
+  .centerCore::before {
     animation: none;
   }
 
