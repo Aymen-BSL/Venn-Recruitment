@@ -63,11 +63,11 @@
 
 .nodePosition {
   animation: market-orbit 30s linear infinite;
-  height: 3.5rem;
+  height: 4rem;
   left: 50%;
   position: absolute;
   top: 50%;
-  width: 3.5rem;
+  width: 4rem;
   z-index: 3;
 }
 
@@ -84,7 +84,7 @@
   color: white;
   cursor: pointer;
   display: flex;
-  height: 3.5rem;
+  height: 4rem;
   justify-content: center;
   padding: 0;
   position: relative;
@@ -93,7 +93,7 @@
     border-color 180ms ease,
     color 180ms ease,
     transform 180ms ease;
-  width: 3.5rem;
+  width: 4rem;
 }
 
 .node:hover,
@@ -123,7 +123,7 @@
   position: absolute;
   text-align: center;
   text-wrap: balance;
-  top: calc(100% + 0.65rem);
+  top: calc(100% + 0.75rem);
   transform: translateX(-50%);
   transition:
     color 180ms ease,
@@ -153,7 +153,7 @@
 }
 
 .callout[data-placement="left"] {
-  transform: translate(calc(-100% - 3.15rem), -50%);
+  transform: translate(calc(-100% - 3.5rem), -50%);
 }
 
 .callout[data-placement="left"]::after {
@@ -164,7 +164,7 @@
 }
 
 .callout[data-placement="right"] {
-  transform: translate(3.15rem, -50%);
+  transform: translate(3.5rem, -50%);
 }
 
 .callout[data-placement="right"]::after {
@@ -175,7 +175,7 @@
 }
 
 .callout[data-placement="top"] {
-  transform: translate(-50%, calc(-100% - 3.15rem));
+  transform: translate(-50%, calc(-100% - 3.5rem));
 }
 
 .callout[data-placement="top"]::after {
@@ -186,7 +186,7 @@
 }
 
 .callout[data-placement="bottom"] {
-  transform: translate(-50%, 3.15rem);
+  transform: translate(-50%, 3.5rem);
 }
 
 .callout[data-placement="bottom"]::after {
@@ -266,8 +266,8 @@
 
   .nodePosition,
   .node {
-    height: 2.9rem;
-    width: 2.9rem;
+    height: 3.25rem;
+    width: 3.25rem;
   }
 
   .nodeLabel {

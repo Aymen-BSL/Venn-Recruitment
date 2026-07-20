@@ -36,6 +36,7 @@ interface ActiveCallout {
 export function RadialMarketOrbit({ items, label }: RadialMarketOrbitProps) {
   const [activeCallout, setActiveCallout] = useState<ActiveCallout | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const calloutRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -79,6 +80,27 @@ export function RadialMarketOrbit({ items, label }: RadialMarketOrbitProps) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [measureNode]);
+
+  useEffect(() => {
+    if (!activeCallout) {
+      return;
+    }
+
+    const handleOutsidePointerDown = (event: PointerEvent) => {
+      const target = event.target;
+
+      if (target instanceof Element && target.closest("[data-orbit-node]")) {
+        return;
+      }
+
+      if (target instanceof Node && !calloutRef.current?.contains(target)) {
+        setActiveCallout(null);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsidePointerDown);
+    return () => document.removeEventListener("pointerdown", handleOutsidePointerDown);
+  }, [activeCallout]);
 
   if (items.length === 0) {
     return null;
@@ -137,6 +159,7 @@ export function RadialMarketOrbit({ items, label }: RadialMarketOrbitProps) {
                 aria-label={`Show details for ${item.title}`}
                 className={styles.node}
                 data-active={isActive}
+                data-orbit-node
                 onClick={() => handleSelect(index)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() =>
@@ -148,7 +171,7 @@ export function RadialMarketOrbit({ items, label }: RadialMarketOrbitProps) {
                 type="button"
               >
                 <span className={styles.nodeIcon} aria-hidden="true">
-                  <Icon size={19} strokeWidth={1.8} />
+                  <Icon size={21} strokeWidth={1.8} />
                 </span>
                 <span className={styles.nodeLabel}>{item.title}</span>
               </button>
@@ -161,6 +184,7 @@ export function RadialMarketOrbit({ items, label }: RadialMarketOrbitProps) {
             className={styles.callout}
             data-placement={activeCallout.placement}
             id="market-orbit-callout"
+            ref={calloutRef}
             style={{ left: activeCallout.x, top: activeCallout.y }}
           >
             <div className={styles.calloutBody} aria-live="polite">
