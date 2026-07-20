@@ -61,7 +61,6 @@ export function LocationsSection() {
           </div>
 
           <div className={styles.areas}>
-            <p className={styles.areasLabel_section_6}>Key areas</p>
             <RadialMarketOrbit
               items={marketAreas}
               label="Venn Recruitment market coverage"
