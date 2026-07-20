@@ -1,0 +1,103 @@
+.section {
+  padding-block: clamp(4rem, 7svh, 6rem);
+}
+
+.layout {
+  display: grid;
+  gap: clamp(3.5rem, 8vw, 8rem);
+}
+
+.content {
+  max-width: 42rem;
+}
+
+.heading .title {
+  max-width: 14ch;
+}
+
+.description {
+  color: var(--copy-muted-inverse);
+  display: grid;
+  font-size: var(--section-copy-size);
+  gap: 0.9rem;
+  line-height: var(--copy-leading);
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  max-width: 37rem;
+}
+
+.description p {
+  margin: 0;
+}
+
+.areas {
+  align-self: center;
+}
+
+.areasLabel {
+  color: var(--sand);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.areas ul {
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: var(--radius-md);
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.areas li {
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+}
+
+.areas li + li {
+  border-top: 1px solid rgb(255 255 255 / 0.2);
+}
+
+.areas h3 {
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.areas li p {
+  color: rgb(255 255 255 / 0.62);
+  line-height: 1.58;
+  margin: 0.75rem 0 0;
+  max-width: 34rem;
+}
+
+@media (min-width: 900px) {
+  .section {
+    align-items: center;
+    display: flex;
+    min-height: 100svh;
+  }
+
+  .section > :global(.site-container) {
+    width: 100%;
+  }
+
+  .layout {
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  }
+
+  .areas li {
+    align-items: start;
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .areas li p {
+    margin-top: 0;
+  }
+}

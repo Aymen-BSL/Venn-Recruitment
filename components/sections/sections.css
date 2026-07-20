@@ -1,5 +1,4 @@
 .form-section-layout,
-.locations-layout,
 .why-layout,
 .faq-layout,
 .contact-layout {
@@ -248,65 +247,6 @@
   font-weight: 700;
   max-width: 6rem;
   text-align: center;
-}
-
-.market-list {
-  display: grid;
-  list-style: none;
-  margin: 2.5rem 0 0;
-  max-width: 32rem;
-  padding: 0;
-}
-
-.market-list li {
-  align-items: center;
-  border-bottom: 1px solid rgb(255 255 255 / 0.22);
-  display: flex;
-  gap: 0.8rem;
-  padding-block: 1rem;
-}
-
-.market-graphic {
-  aspect-ratio: 1;
-  margin-inline: auto;
-  max-width: 32rem;
-  position: relative;
-  width: 100%;
-}
-
-.market-ring {
-  border: 1px solid rgb(255 255 255 / 0.45);
-  border-radius: 999px;
-  height: 68%;
-  position: absolute;
-  top: 16%;
-  width: 68%;
-}
-
-.market-ring-one {
-  left: 3%;
-}
-
-.market-ring-two {
-  right: 3%;
-}
-
-.market-core {
-  align-items: center;
-  background: var(--sand);
-  border-radius: 999px;
-  color: var(--ink);
-  display: flex;
-  font-size: 0.72rem;
-  font-weight: 700;
-  height: 24%;
-  justify-content: center;
-  left: 38%;
-  padding: 1rem;
-  position: absolute;
-  text-align: center;
-  top: 38%;
-  width: 24%;
 }
 
 .process-grid {
@@ -657,7 +597,6 @@
     width: 100%;
   }
 
-  .locations-layout,
   .why-layout,
   .faq-layout,
   .contact-layout {
