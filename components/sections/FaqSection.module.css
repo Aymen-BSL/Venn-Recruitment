@@ -1,5 +1,6 @@
 .section {
   background: white;
+  overflow: visible;
   padding-block: clamp(4.5rem, 8svh, 7rem);
 }
 
@@ -36,6 +37,6 @@
 
   .introduction {
     position: sticky;
-    top: 8.5rem;
+    top: max(8rem, calc(50svh - clamp(9rem, 14vw, 13rem)));
   }
 }
