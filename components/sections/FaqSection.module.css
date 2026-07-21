@@ -1,0 +1,41 @@
+.section {
+  background: white;
+  padding-block: clamp(4.5rem, 8svh, 7rem);
+}
+
+.layout {
+  display: grid;
+  gap: clamp(3.25rem, 8vw, 7rem);
+}
+
+.introduction {
+  max-width: 40rem;
+}
+
+.title {
+  max-width: 12ch;
+}
+
+.description {
+  color: var(--copy-muted);
+  font-size: var(--section-copy-size);
+  line-height: var(--copy-leading);
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  max-width: 34rem;
+}
+
+.questions {
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    align-items: start;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  }
+
+  .introduction {
+    position: sticky;
+    top: 8.5rem;
+  }
+}
