@@ -26,7 +26,7 @@ export function ContactSection() {
 
         <div className={styles.contactGrid}>
           <Reveal className={styles.formArea}>
-            <ContactForm className={styles.contactForm} />
+            <ContactForm />
           </Reveal>
 
           <Reveal className={styles.aside}>

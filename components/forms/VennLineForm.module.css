@@ -1,0 +1,200 @@
+.form {
+  gap: 1.45rem;
+}
+
+.form :global(.form-field) {
+  gap: 0;
+}
+
+.form :global(.form-field label) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.form :global(.form-control) {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.42);
+  border-radius: 0;
+  box-shadow: none;
+  color: white;
+  min-height: 3rem;
+  padding: 0.65rem 0;
+}
+
+.form :global(.form-control:hover) {
+  border-color: rgb(255 255 255 / 0.72);
+}
+
+.form :global(.form-control:focus-visible) {
+  border-color: var(--paper);
+  box-shadow: 0 1px 0 var(--paper);
+  outline: 0;
+}
+
+.form :global(.form-control::placeholder) {
+  color: rgb(255 255 255 / 0.52);
+  opacity: 1;
+}
+
+.form :global(textarea.form-control) {
+  min-height: 6.5rem;
+}
+
+.form :global(input[type="file"].form-control) {
+  color: rgb(255 255 255 / 0.7);
+  cursor: pointer;
+  font-size: 0.82rem;
+  padding-block: 0.55rem;
+}
+
+.form :global(input[type="file"].form-control::file-selector-button) {
+  background: rgb(255 255 255 / 0.12);
+  border: 1px solid rgb(255 255 255 / 0.36);
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 680;
+  margin-right: 0.85rem;
+  padding: 0.55rem 0.85rem;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.form :global(input[type="file"].form-control:hover::file-selector-button) {
+  background: rgb(255 255 255 / 0.2);
+  border-color: rgb(255 255 255 / 0.62);
+}
+
+.form :global(.form-control-error) {
+  border-color: #ffd0ca;
+}
+
+.form :global(.field-hint),
+.form :global(.field-error) {
+  line-height: 1.45;
+  padding-top: 0.5rem;
+}
+
+.form :global(.field-hint) {
+  color: rgb(255 255 255 / 0.58);
+}
+
+.form :global(.field-error) {
+  color: #ffd0ca;
+}
+
+.form :global(.form-submit) {
+  background: var(--sand);
+  color: var(--ink);
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.form :global(.form-submit:hover:not(:disabled)) {
+  background: white;
+}
+
+.form :global(.form-success) {
+  background: rgb(255 255 255 / 0.12);
+  border-color: var(--sand);
+  color: white;
+  line-height: 1.55;
+}
+
+.privacyNote {
+  color: rgb(255 255 255 / 0.58);
+  font-size: 0.75rem;
+  line-height: 1.55;
+  margin: -0.15rem 0 0;
+}
+
+.privacyNote a {
+  color: white;
+  font-weight: 680;
+  text-underline-offset: 0.18em;
+}
+
+.light :global(.form-control) {
+  border-bottom-color: color-mix(in srgb, var(--ink) 24%, transparent);
+  color: var(--ink);
+}
+
+.light :global(.form-control:hover) {
+  border-color: color-mix(in srgb, var(--ink) 48%, transparent);
+}
+
+.light :global(.form-control:focus-visible) {
+  border-color: var(--green);
+  box-shadow: 0 1px 0 var(--green);
+}
+
+.light :global(.form-control::placeholder) {
+  color: rgb(30 31 34 / 0.5);
+}
+
+.light :global(input[type="file"].form-control) {
+  color: var(--copy-muted);
+}
+
+.light :global(input[type="file"].form-control::file-selector-button) {
+  background: color-mix(in srgb, var(--green) 9%, white);
+  border-color: color-mix(in srgb, var(--green) 32%, transparent);
+  color: var(--green-dark);
+}
+
+.light :global(input[type="file"].form-control:hover::file-selector-button) {
+  background: color-mix(in srgb, var(--green) 15%, white);
+  border-color: var(--green);
+}
+
+.light :global(.form-control-error) {
+  border-color: #b42318;
+}
+
+.light :global(.field-hint) {
+  color: var(--copy-muted);
+}
+
+.light :global(.field-error) {
+  color: #b42318;
+}
+
+.light :global(.form-submit) {
+  background: var(--green);
+  color: white;
+}
+
+.light :global(.form-submit:hover:not(:disabled)) {
+  background: var(--green-dark);
+}
+
+.light :global(.form-success) {
+  background: color-mix(in srgb, var(--green) 10%, white);
+  border-color: var(--green);
+  color: var(--green-dark);
+}
+
+.light .privacyNote {
+  color: var(--copy-muted);
+}
+
+.light .privacyNote a {
+  color: var(--green-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form :global(input[type="file"].form-control::file-selector-button) {
+    transition: none;
+  }
+}

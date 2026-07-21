@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Container } from "@/components/ui/Container";
@@ -7,6 +7,7 @@ type FormPageShellProps = {
   children: ReactNode;
   description: string;
   eyebrow: string;
+  points: readonly string[];
   switchHref: string;
   switchLabel: string;
   title: string;
@@ -16,12 +17,16 @@ export function FormPageShell({
   children,
   description,
   eyebrow,
+  points,
   switchHref,
   switchLabel,
   title,
 }: FormPageShellProps) {
   return (
     <div className="form-page">
+      <a className="skip-link" href="#form-page-main">
+        Skip to form
+      </a>
       <header className="form-page-header">
         <Container className="form-page-nav">
           <Link className="form-page-wordmark" href="/" aria-label="Venn Recruitment home">
@@ -40,15 +45,27 @@ export function FormPageShell({
         </Container>
       </header>
 
-      <main className="form-page-main">
+      <main className="form-page-main" id="form-page-main" tabIndex={-1}>
         <Container className="form-page-grid">
           <section className="form-page-intro" aria-labelledby="form-page-title">
             <p className="form-page-eyebrow">{eyebrow}</p>
             <h1 id="form-page-title">{title}</h1>
             <p className="form-page-description">{description}</p>
+            <ul className="form-page-points" aria-label="What to expect">
+              {points.map((point) => (
+                <li key={point}>
+                  <Check aria-hidden="true" size={17} strokeWidth={2} />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="form-page-card" aria-label={`${title} form`}>
+            <div className="form-page-card-orbits" aria-hidden="true">
+              <span />
+              <span />
+            </div>
             {children}
           </section>
         </Container>
