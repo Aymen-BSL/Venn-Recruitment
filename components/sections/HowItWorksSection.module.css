@@ -1,0 +1,123 @@
+.section {
+  background: var(--paper);
+  padding-block: clamp(4.5rem, 8svh, 7rem);
+}
+
+.introduction {
+  display: grid;
+  gap: clamp(1.75rem, 5vw, 5rem);
+}
+
+.title {
+  max-width: 14ch;
+}
+
+.description {
+  align-self: end;
+  color: var(--copy-muted);
+  font-size: var(--section-copy-size);
+  line-height: var(--copy-leading);
+  margin: 0;
+  max-width: 38rem;
+}
+
+.processList {
+  display: grid;
+  gap: 2.25rem;
+  list-style: none;
+  margin: clamp(3.5rem, 7vw, 6rem) 0 0;
+  padding: 0;
+}
+
+.step {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  position: relative;
+}
+
+.step::after {
+  background: color-mix(in srgb, var(--green) 32%, transparent);
+  content: "";
+  left: 1.625rem;
+  position: absolute;
+  top: 3.25rem;
+  bottom: -2.25rem;
+  width: 1px;
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+.marker {
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--green) 48%, transparent);
+  border-radius: var(--radius-sm);
+  color: var(--green);
+  display: flex;
+  height: 3.25rem;
+  justify-content: center;
+  position: relative;
+  width: 3.25rem;
+  z-index: 1;
+}
+
+.stepContent h3 {
+  font-size: clamp(1.3rem, 1.8vw, 1.55rem);
+  font-weight: 580;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.stepContent p {
+  color: var(--copy-muted);
+  line-height: 1.58;
+  margin: 0.75rem 0 0;
+  max-width: 29rem;
+}
+
+@media (min-width: 900px) {
+  .section {
+    align-items: center;
+    display: flex;
+    min-height: 100svh;
+  }
+
+  .section > :global(.site-container) {
+    width: 100%;
+  }
+
+  .introduction {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  }
+
+  .processList {
+    --process-gap: clamp(1.5rem, 3vw, 3.5rem);
+    gap: var(--process-gap);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .step {
+    display: block;
+  }
+
+  .step::after {
+    bottom: auto;
+    height: 1px;
+    left: 3.25rem;
+    right: calc(var(--process-gap) * -1);
+    top: 1.625rem;
+    width: auto;
+  }
+
+  .stepContent {
+    margin-top: 1.5rem;
+  }
+
+  .stepContent h3 {
+    min-height: 1.15em;
+  }
+}
