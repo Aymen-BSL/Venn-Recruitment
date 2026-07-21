@@ -158,38 +158,19 @@ export const policies: Record<PolicySlug, PolicyDocument> = {
       {
         heading: "Current website use",
         paragraphs: [
-          "The current public website is designed to function without advertising or cross-site tracking cookies. Essential technical storage may be used where necessary to provide a requested feature, maintain security, balance traffic, or remember a privacy choice.",
-          "If analytics, embedded media, recruitment-platform integrations, or other non-essential technologies are introduced, this policy and any consent controls should be updated before those technologies are activated.",
+          "The current public website does not set cookies or use browser storage for analytics, advertising, preferences, or cross-site tracking. It operates without optional tracking technology.",
         ],
       },
       {
-        heading: "Cookie categories",
-        items: [
-          "Strictly necessary: supports security, network management, accessibility, and features you request.",
-          "Preferences: remembers choices such as language, region, or interface settings.",
-          "Analytics: helps understand website usage and performance using aggregated or pseudonymous measurements.",
-          "Marketing: measures campaigns or supports relevant advertising across services.",
-        ],
+        heading: "If this changes",
         paragraphs: [
-          "Preference, analytics, and marketing technologies should only be used where permitted by applicable law and, when required, after you have made a consent choice.",
+          "If Venn Recruitment later introduces analytics, embedded third-party services, advertising technology, or another feature that stores or reads information on your device, this policy will be updated before activation. Where applicable law requires consent, the technology will remain disabled until you make a choice.",
         ],
       },
       {
-        heading: "Third-party technologies",
+        heading: "Contact",
         paragraphs: [
-          "Some future features may be delivered by third parties, such as video, maps, analytics, social media, or application platforms. Those providers may set their own cookies when you use the feature. Their use is governed by their own policies as well as any consent controls shown on this website.",
-        ],
-      },
-      {
-        heading: "Managing cookies",
-        paragraphs: [
-          "You can use website consent controls, where available, to change non-essential cookie choices. You can also block or delete cookies through your browser settings. Blocking strictly necessary technology may cause parts of a website to work incorrectly.",
-        ],
-      },
-      {
-        heading: "Updates and contact",
-        paragraphs: [
-          "We may update this policy when website technology or legal requirements change. Questions about cookies or privacy can be sent through the Contact Venn form.",
+          "Questions about website technology or privacy can be sent through the Contact Venn form.",
         ],
       },
     ],
