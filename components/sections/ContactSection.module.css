@@ -66,8 +66,8 @@
 }
 
 .contactForm :global(.form-control:focus-visible) {
-  border-color: var(--sand);
-  box-shadow: 0 1px 0 var(--sand);
+  border-color: var(--paper);
+  box-shadow: 0 1px 0 var(--paper);
   outline: 0;
 }
 
