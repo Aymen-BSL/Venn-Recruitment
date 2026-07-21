@@ -1,5 +1,4 @@
-.form-section-layout,
-.contact-layout {
+.form-section-layout {
   display: grid;
   gap: clamp(3rem, 8vw, 8rem);
 }
@@ -266,24 +265,6 @@
   text-align: center;
 }
 
-.contact-options {
-  display: grid;
-  gap: 1rem;
-  margin-top: 2.5rem;
-}
-
-.contact-options div {
-  align-items: center;
-  display: flex;
-  gap: 0.8rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.contact-options svg {
-  color: var(--green);
-}
-
 .trust-card {
   box-shadow: 0 12px 40px rgb(30 31 34 / 0.045);
 }
@@ -451,11 +432,6 @@
 
   .about-section > .site-container {
     width: 100%;
-  }
-
-  .contact-layout {
-    align-items: center;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 
   .about-layout {

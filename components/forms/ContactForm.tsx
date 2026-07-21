@@ -22,15 +22,15 @@ export function ContactForm() {
         id="contact-topic"
         label="Enquiry type"
         kind="select"
-        options={["[Select an enquiry type]", "[Candidate enquiry]", "[Employer enquiry]", "[General enquiry]"]}
+        options={["[Choose an enquiry type]", "Candidate enquiry", "Employer enquiry", "General enquiry"]}
         required
       />
       <FormField id="contact-message" label="Message" kind="textarea" placeholder="[How can we help?]" required />
       <button className="form-submit" type="submit" disabled={submitted}>
         <Send aria-hidden="true" size={18} />
-        {submitted ? "[Enquiry sent]" : "[Send enquiry]"}
+        {submitted ? "Enquiry Sent" : "Send an Enquiry"}
       </button>
-      {submitted ? <p className="form-success" role="status">[Contact enquiry success message]</p> : null}
+      {submitted ? <p className="form-success" role="status">[Contact enquiry confirmation]</p> : null}
     </form>
   );
 }
