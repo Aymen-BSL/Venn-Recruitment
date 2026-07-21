@@ -1,0 +1,89 @@
+.section {
+  background: var(--paper);
+  padding-block: clamp(4.5rem, 8svh, 7rem);
+}
+
+.layout {
+  display: grid;
+  gap: clamp(3rem, 7vw, 7rem);
+}
+
+.introduction {
+  max-width: 42rem;
+}
+
+.title {
+  max-width: 14ch;
+}
+
+.description {
+  color: var(--copy-muted);
+  font-size: var(--section-copy-size);
+  line-height: var(--copy-leading);
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  max-width: 35rem;
+}
+
+.action {
+  margin-top: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.principles {
+  align-self: center;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+}
+
+.principleList {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.principle {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.principleHeading {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.principleHeading svg {
+  color: var(--green);
+  flex: 0 0 auto;
+}
+
+.principleHeading h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-weight: 580;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.principle p {
+  color: var(--copy-muted);
+  line-height: 1.65;
+  margin: 0 0 0 2.625rem;
+  max-width: 34rem;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    align-items: center;
+    grid-template-columns: minmax(0, 0.9fr) minmax(26rem, 1.1fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .principle p {
+    margin-left: 0;
+  }
+}

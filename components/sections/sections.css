@@ -265,10 +265,6 @@
   text-align: center;
 }
 
-.trust-card {
-  box-shadow: 0 12px 40px rgb(30 31 34 / 0.045);
-}
-
 .site-footer {
   background: var(--ink);
   color: white;
