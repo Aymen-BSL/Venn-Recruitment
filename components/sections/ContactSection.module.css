@@ -115,15 +115,13 @@
 .asideContent {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.5rem, 5vw, 4rem);
-  height: 100%;
-  justify-content: space-between;
+  gap: 1.25rem;
   padding-block: 0.2rem;
 }
 
 .details {
   display: grid;
-  gap: clamp(1.75rem, 3vw, 2.5rem);
+  gap: 1.125rem;
 }
 
 .details section {
@@ -186,6 +184,27 @@
 
   .contactGrid {
     grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  }
+
+  .aside {
+    position: relative;
+  }
+
+  .asideContent {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-rows: minmax(0, 1fr) auto;
+    inset: 0;
+    padding: 0;
+    position: absolute;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: space-between;
+    min-height: 0;
   }
 }
 
