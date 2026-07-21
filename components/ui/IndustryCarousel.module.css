@@ -24,6 +24,7 @@
 
 .card {
   background: white;
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
   border-radius: var(--radius-md);
   box-shadow: none;
   display: flex;
@@ -31,6 +32,7 @@
   min-height: 27rem;
   overflow: hidden;
   transition:
+    border-color 200ms ease,
     box-shadow 200ms ease,
     transform 200ms ease;
 }
@@ -58,6 +60,7 @@
 
 @media (hover: hover) {
   .card:hover {
+    border-color: color-mix(in srgb, var(--green) 32%, transparent);
     box-shadow: 0 10px 26px rgb(30 31 34 / 0.08);
     transform: translateY(-0.2rem);
   }
