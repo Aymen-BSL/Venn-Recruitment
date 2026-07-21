@@ -18,9 +18,9 @@ export function ContactForm({ className = "" }: ContactFormProps) {
 
   return (
     <form className={`form-grid ${className}`} onSubmit={handleSubmit} aria-label="Contact enquiry">
-      <FormField id="contact-name" label="Name" placeholder="[Your name]" autoComplete="name" required />
-      <FormField id="contact-email" label="Email" placeholder="[Your email address]" type="email" autoComplete="email" required />
-      <FormField id="contact-message" label="Message" kind="textarea" placeholder="[How can we help?]" required />
+      <FormField id="contact-name" label="Name" placeholder="Name" autoComplete="name" required />
+      <FormField id="contact-email" label="Email" placeholder="Email" type="email" autoComplete="email" required />
+      <FormField id="contact-message" label="Message" kind="textarea" placeholder="Message" required />
       <button className="form-submit" type="submit" disabled={submitted}>
         <Send aria-hidden="true" size={18} />
         {submitted ? "Enquiry Sent" : "Send an Enquiry"}
