@@ -14,12 +14,6 @@ const items = [
       "No. Candidates are not charged for submitting their CV, applying for opportunities or receiving support during the recruitment process.",
   },
   {
-    id: "submit-cv",
-    question: "How do I submit my CV?",
-    answer:
-      "You can submit your CV through our dedicated candidate form. Our team will review your profile and contact you when a suitable opportunity becomes available.",
-  },
-  {
     id: "submission-response",
     question: "Will I be contacted after submitting my CV?",
     answer:
@@ -42,12 +36,6 @@ const items = [
     question: "Can I contact Venn about an existing application?",
     answer:
       "Yes. You can contact our team through the website and provide the relevant details so we can assist you.",
-  },
-  {
-    id: "submit-vacancy",
-    question: "How can an employer submit a vacancy?",
-    answer:
-      "Employers can share their hiring requirements through our dedicated talent request form. A member of our team will then follow up to understand the role in more detail.",
   },
   {
     id: "recruitment-timeline",
@@ -110,7 +98,10 @@ export function FaqAccordion() {
         const buttonId = `${item.id}-button`;
 
         return (
-          <article className={`${styles.item} ${isOpen ? styles.open : ""}`} key={item.id}>
+          <article
+            className={`${styles.item} ${isOpen ? styles.open : ""}`}
+            key={item.id}
+          >
             <h3 className={styles.question}>
               <button
                 aria-controls={panelId}
@@ -121,7 +112,12 @@ export function FaqAccordion() {
                 type="button"
               >
                 <span>{item.question}</span>
-                <Plus aria-hidden="true" className={styles.icon} size={21} strokeWidth={1.8} />
+                <Plus
+                  aria-hidden="true"
+                  className={styles.icon}
+                  size={21}
+                  strokeWidth={1.8}
+                />
               </button>
             </h3>
             <div

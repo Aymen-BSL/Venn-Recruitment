@@ -1,9 +1,4 @@
-import {
-  BadgeCheck,
-  Handshake,
-  MessageSquareText,
-  Search,
-} from "lucide-react";
+import { BadgeCheck, Handshake, MessageSquareText, Search } from "lucide-react";
 
 import { Reveal } from "@/components/animation/Reveal";
 import { Container } from "@/components/ui/Container";
@@ -58,8 +53,9 @@ export function HowItWorksSection() {
             </div>
 
             <p className={styles.description}>
-              Strong placements start with understanding. We learn what employers
-              need and what candidates want before bringing the two together.
+              Strong placements start with understanding. We learn what
+              employers need and what candidates want before bringing the two
+              together.
             </p>
           </header>
 

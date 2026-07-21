@@ -45,6 +45,7 @@
   animation: center-color-breathe 3.4s ease-in-out infinite;
   background: rgb(255 255 255 / 0.12);
   border: 1px solid rgb(255 255 255 / 0.3);
+  /* border: 1px solid var(--sand); */
   border-radius: 50%;
   color: white;
   display: flex;
@@ -64,7 +65,8 @@
 
 .centerCore::before {
   animation: center-pulse 3.4s ease-out infinite;
-  border: 1px solid rgb(255 255 255 / 0.38);
+  /* border: 1px solid rgb(255 255 255 / 0.38); */
+  border: 1px solid var(--sand);
   border-radius: inherit;
   content: "";
   inset: 0;
@@ -105,8 +107,7 @@
   left: 50%;
   position: absolute;
   top: 50%;
-  transform:
-    translate(-50%, -50%)
+  transform: translate(-50%, -50%)
     rotate(calc(var(--node-angle) + var(--orbit-rotation)))
     translateX(var(--orbit-radius))
     rotate(calc(var(--node-angle-inverse) - var(--orbit-rotation)));
@@ -261,10 +262,12 @@
   0%,
   100% {
     background-color: rgb(255 255 255 / 0.07);
+    /* background-color: rgba(242, 215, 175, 0.08); */
   }
 
-  50% {
+  60% {
     background-color: rgb(255 255 255 / 0.18);
+    /* background-color: rgba(242, 215, 175, 0.75); */
   }
 }
 
