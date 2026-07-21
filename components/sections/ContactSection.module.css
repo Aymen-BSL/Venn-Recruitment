@@ -25,35 +25,16 @@
 }
 
 .contactGrid {
+  align-items: end;
   display: grid;
   gap: clamp(3rem, 7vw, 7rem);
   margin-top: clamp(3rem, 6vw, 5rem);
 }
 
 .formArea {
+  max-width: 46rem;
   min-width: 0;
   scroll-margin-top: 7rem;
-}
-
-.formHeading {
-  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
-  max-width: 34rem;
-}
-
-.formHeading h3,
-.quickPath h3 {
-  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
-  font-weight: 580;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 0;
-}
-
-.formHeading p,
-.quickPath p {
-  color: var(--copy-muted-inverse);
-  line-height: 1.55;
-  margin: 0.65rem 0 0;
 }
 
 .contactForm {
@@ -116,41 +97,13 @@
 }
 
 .aside {
-  display: grid;
-  gap: clamp(2.5rem, 5vw, 4rem);
-}
-
-.aside nav {
-  display: grid;
-  gap: 2rem;
-}
-
-.quickPath a {
-  align-items: center;
-  color: white;
-  display: inline-flex;
-  font-size: 0.85rem;
-  font-weight: 700;
-  gap: 0.55rem;
-  margin-top: 1rem;
-  padding-bottom: 0.2rem;
-  text-decoration: underline;
-  text-decoration-color: rgb(255 255 255 / 0.38);
-  text-underline-offset: 0.3rem;
-}
-
-.quickPath a svg {
-  transition: transform 180ms ease;
-}
-
-.quickPath a:hover svg {
-  transform: translate(0.15rem, -0.15rem);
+  align-self: end;
 }
 
 .details {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   margin: 0;
 }
 
@@ -194,14 +147,8 @@
     font-size: clamp(2rem, 8.5vw, 3.2rem);
   }
 
-  .aside {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  }
-}
-
-@media (max-width: 639px) {
-  .aside {
-    grid-template-columns: 1fr;
+  .details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

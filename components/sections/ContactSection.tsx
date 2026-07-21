@@ -1,24 +1,7 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/animation/Reveal";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Container } from "@/components/ui/Container";
 import styles from "./ContactSection.module.css";
-
-const quickPaths = [
-  {
-    title: "Looking for a job?",
-    description: "Tell us what you want from your next opportunity.",
-    action: "Submit Your CV",
-    href: "/submit-cv",
-  },
-  {
-    title: "Hiring talent?",
-    description: "Share the role and recruitment support you need.",
-    action: "Hire Talent",
-    href: "/hire-talent",
-  },
-] as const;
 
 const contactDetails = [
   { label: "Email", value: "[General contact email]" },
@@ -43,41 +26,17 @@ export function ContactSection() {
               <span>with Venn</span>
             </h2>
             <p className={styles.description}>
-              Looking for your next opportunity, hiring for your team or getting in
-              touch for another reason? Choose the path that fits your needs.
+              Every opportunity starts with a conversation. Tell us what brings you
+              to Venn, and we will point you in the right direction.
             </p>
           </header>
 
           <div className={styles.contactGrid}>
-            <section
-              aria-labelledby="contact-enquiry-title"
-              className={styles.formArea}
-              id="contact-enquiry"
-            >
-              <div className={styles.formHeading}>
-                <h3 id="contact-enquiry-title">General enquiries</h3>
-                <p>
-                  Ask about Venn Recruitment, partnerships or anything else we can
-                  help with.
-                </p>
-              </div>
+            <div className={styles.formArea} id="contact-enquiry">
               <ContactForm className={styles.contactForm} />
-            </section>
+            </div>
 
             <aside className={styles.aside}>
-              <nav aria-label="Candidate and employer contact options">
-                {quickPaths.map((path) => (
-                  <div className={styles.quickPath} key={path.title}>
-                    <h3>{path.title}</h3>
-                    <p>{path.description}</p>
-                    <Link href={path.href}>
-                      <span>{path.action}</span>
-                      <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.8} />
-                    </Link>
-                  </div>
-                ))}
-              </nav>
-
               <dl aria-label="Contact details" className={styles.details}>
                 {contactDetails.map((detail) => (
                   <div key={detail.label}>
