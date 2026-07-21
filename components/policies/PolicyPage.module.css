@@ -1,0 +1,339 @@
+.page {
+  background: var(--paper);
+  min-height: 100svh;
+}
+
+.header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.headerInner {
+  align-items: center;
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+}
+
+.wordmark,
+.returnLink {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.wordmark {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.returnLink {
+  align-items: center;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 680;
+  gap: 0.55rem;
+}
+
+.returnLink svg {
+  transition: transform 180ms ease;
+}
+
+.returnLink:hover svg {
+  transform: translateX(-3px);
+}
+
+.masthead {
+  background: var(--green);
+  color: white;
+  overflow: hidden;
+}
+
+.mastheadInner {
+  min-height: clamp(28rem, 60vw, 41rem);
+  padding-block: clamp(5rem, 10vw, 8.5rem);
+  position: relative;
+}
+
+.masthead h1 {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 520;
+  letter-spacing: -0.055em;
+  line-height: 0.88;
+  margin: 0;
+  max-width: 10ch;
+  position: relative;
+  text-wrap: balance;
+  z-index: 1;
+}
+
+.eyebrow,
+.updated {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--sand);
+  margin: 0 0 1.4rem;
+}
+
+.intro {
+  color: rgb(255 255 255 / 0.76);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.55;
+  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+  max-width: 39rem;
+  position: relative;
+  z-index: 1;
+}
+
+.updated {
+  border-top: 1px solid rgb(255 255 255 / 0.28);
+  color: rgb(255 255 255 / 0.62);
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  max-width: 39rem;
+  padding-top: 1.1rem;
+}
+
+.orbits {
+  height: clamp(20rem, 50vw, 42rem);
+  opacity: 0.36;
+  pointer-events: none;
+  position: absolute;
+  right: clamp(-12rem, -8vw, -3rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(28rem, 64vw, 58rem);
+}
+
+.orbits span {
+  border: 1px solid rgb(255 255 255 / 0.55);
+  border-radius: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 64%;
+}
+
+.orbits span:first-child {
+  left: 0;
+}
+
+.orbits span:last-child {
+  right: 0;
+}
+
+.documentLayout {
+  display: grid;
+  gap: clamp(3rem, 7vw, 8rem);
+  padding-block: clamp(4.5rem, 9vw, 9rem);
+}
+
+.policyIndex {
+  align-self: start;
+}
+
+.policyIndex > p {
+  color: rgb(30 31 34 / 0.5);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.policyIndex nav {
+  border-top: 1px solid var(--line);
+  display: grid;
+}
+
+.policyIndex a {
+  border-bottom: 1px solid var(--line);
+  color: rgb(30 31 34 / 0.58);
+  font-size: 0.92rem;
+  font-weight: 580;
+  line-height: 1.35;
+  padding: 0.9rem 0;
+  text-decoration: none;
+  transition: color 180ms ease, padding-left 180ms ease;
+}
+
+.policyIndex a:hover {
+  color: var(--ink);
+  padding-left: 0.35rem;
+}
+
+.policyIndex .activePolicy {
+  color: var(--green-dark);
+  font-weight: 720;
+}
+
+.article {
+  max-width: 48rem;
+}
+
+.reviewNote {
+  background: color-mix(in srgb, var(--sand) 52%, white);
+  border-left: 3px solid var(--green);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+  padding: 1.2rem 1.35rem;
+}
+
+.reviewNote strong {
+  display: block;
+  font-size: 0.78rem;
+  margin-bottom: 0.4rem;
+}
+
+.reviewNote p {
+  color: rgb(30 31 34 / 0.68);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.policySection + .policySection {
+  border-top: 1px solid var(--line);
+  margin-top: clamp(2.75rem, 6vw, 4.5rem);
+  padding-top: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+.policySection h2,
+.contactCard h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin: 0 0 1.35rem;
+}
+
+.policySection p,
+.policySection li {
+  color: rgb(30 31 34 / 0.69);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.72;
+}
+
+.policySection p {
+  margin: 0;
+}
+
+.policySection p + p {
+  margin-top: 1rem;
+}
+
+.policySection ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.35rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.policySection li::marker {
+  color: var(--green);
+}
+
+.contactCard {
+  align-items: end;
+  background: var(--violet);
+  border-radius: var(--radius-md);
+  color: white;
+  display: grid;
+  gap: 2rem;
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding: clamp(1.5rem, 4vw, 2.8rem);
+}
+
+.contactLabel {
+  color: var(--sand);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.9rem;
+  text-transform: uppercase;
+}
+
+.contactCard h2 {
+  margin-bottom: 0.8rem;
+}
+
+.contactCard div > p:last-child {
+  color: rgb(255 255 255 / 0.7);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 32rem;
+}
+
+.contactCard a {
+  align-items: center;
+  background: white;
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.6rem;
+  justify-self: start;
+  padding: 0.9rem 1.15rem;
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.contactCard a:hover {
+  background: var(--sand);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 840px) {
+  .documentLayout {
+    grid-template-columns: minmax(11rem, 0.62fr) minmax(0, 1.7fr);
+  }
+
+  .policyIndex {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .contactCard {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .contactCard a {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 520px) {
+  .mastheadInner {
+    min-height: 31rem;
+  }
+
+  .orbits {
+    opacity: 0.23;
+    right: -15rem;
+  }
+
+  .returnLink {
+    font-size: 0;
+    gap: 0;
+  }
+
+  .returnLink svg {
+    height: 21px;
+    width: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .returnLink svg,
+  .policyIndex a,
+  .contactCard a {
+    transition: none;
+  }
+}

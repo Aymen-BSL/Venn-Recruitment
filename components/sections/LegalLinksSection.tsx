@@ -5,12 +5,12 @@ export function LegalLinksSection() {
   return (
     <section className="legal-section" id="legal" aria-label="Legal and policy links">
       <Container className="legal-inner">
-        <p>© {new Date().getFullYear()} Venn Recruitment. [Rights statement]</p>
+        <p>&copy; {new Date().getFullYear()} Venn Recruitment. All rights reserved.</p>
         <nav aria-label="Legal policies">
-          <Link href="#legal">[Privacy policy]</Link>
-          <Link href="#legal">[Terms and conditions]</Link>
-          <Link href="#legal">[Cookie policy]</Link>
-          <Link href="#trust-safety">[Trust and safety policy]</Link>
+          <Link href="/privacy-policy">Privacy policy</Link>
+          <Link href="/terms-and-conditions">Terms and conditions</Link>
+          <Link href="/cookie-policy">Cookie policy</Link>
+          <Link href="/trust-and-safety">Trust and safety policy</Link>
         </nav>
       </Container>
     </section>
