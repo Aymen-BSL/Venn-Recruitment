@@ -1,123 +1,157 @@
 .section {
-  padding-block: clamp(4.5rem, 8svh, 7rem);
+  color: white;
+  padding-block: clamp(4rem, 7svh, 6rem);
 }
 
 .header {
-  max-width: 54rem;
+  max-width: 52rem;
 }
 
 .title {
-  max-width: 12ch;
+  max-width: none;
+}
+
+.title span {
+  display: block;
+  white-space: nowrap;
 }
 
 .description {
-  color: var(--copy-muted);
+  color: var(--copy-muted-inverse);
   font-size: var(--section-copy-size);
   line-height: var(--copy-leading);
   margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
-  max-width: 42rem;
+  max-width: 39rem;
 }
 
-.workspace {
-  align-items: start;
+.contactGrid {
   display: grid;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(3rem, 7vw, 7rem);
   margin-top: clamp(3rem, 6vw, 5rem);
 }
 
-.pathways {
-  background: rgb(255 255 255 / 0.38);
-  border: 1px solid rgb(30 31 34 / 0.14);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.pathway {
-  align-items: start;
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  padding: clamp(1.35rem, 2.5vw, 1.8rem);
-  transition: background-color 180ms ease;
-}
-
-.pathway + .pathway {
-  border-top: 1px solid rgb(30 31 34 / 0.12);
-}
-
-.pathway:hover {
-  background: rgb(255 255 255 / 0.52);
-}
-
-.pathwayIcon {
-  color: var(--green);
-  margin-top: 0.15rem;
-}
-
-.pathwayCopy {
-  display: grid;
-  gap: 0.6rem;
+.formArea {
   min-width: 0;
+  scroll-margin-top: 7rem;
 }
 
-.pathwayCopy h3 {
-  font-size: clamp(1.2rem, 1.7vw, 1.48rem);
+.formHeading {
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  max-width: 34rem;
+}
+
+.formHeading h3,
+.quickPath h3 {
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
   font-weight: 580;
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin: 0;
 }
 
-.pathwayCopy p {
-  color: var(--copy-muted);
+.formHeading p,
+.quickPath p {
+  color: var(--copy-muted-inverse);
   line-height: 1.55;
-  margin: 0;
-  max-width: 28rem;
+  margin: 0.65rem 0 0;
 }
 
-.pathwayAction {
-  align-items: center;
+.contactForm {
+  gap: 1.45rem;
+}
+
+.contactForm :global(.form-field) {
+  gap: 0.35rem;
+}
+
+.contactForm :global(.form-field label) {
+  color: rgb(255 255 255 / 0.76);
+  font-weight: 600;
+}
+
+.contactForm :global(.form-control) {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.42);
+  border-radius: 0;
+  box-shadow: none;
+  color: white;
+  min-height: 3rem;
+  padding: 0.65rem 0;
+}
+
+.contactForm :global(.form-control:hover) {
+  border-color: rgb(255 255 255 / 0.72);
+}
+
+.contactForm :global(.form-control:focus-visible) {
+  border-color: var(--sand);
+  box-shadow: 0 1px 0 var(--sand);
+  outline: 0;
+}
+
+.contactForm :global(.form-control::placeholder) {
+  color: rgb(255 255 255 / 0.46);
+}
+
+.contactForm :global(textarea.form-control) {
+  min-height: 6.5rem;
+}
+
+.contactForm :global(.form-submit) {
+  background: var(--sand);
   color: var(--ink);
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.contactForm :global(.form-submit:hover:not(:disabled)) {
+  background: white;
+}
+
+.contactForm :global(.form-success) {
+  background: rgb(255 255 255 / 0.12);
+  border-color: var(--sand);
+  color: white;
+}
+
+.aside {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.aside nav {
+  display: grid;
+  gap: 2rem;
+}
+
+.quickPath a {
+  align-items: center;
+  color: white;
   display: inline-flex;
-  font-size: 0.84rem;
+  font-size: 0.85rem;
   font-weight: 700;
   gap: 0.55rem;
-  margin-top: 0.2rem;
-  padding: 0.35rem 0;
-  text-decoration: none;
-  white-space: nowrap;
+  margin-top: 1rem;
+  padding-bottom: 0.2rem;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 0.38);
+  text-underline-offset: 0.3rem;
 }
 
-.pathwayAction svg {
+.quickPath a svg {
   transition: transform 180ms ease;
 }
 
-.pathwayAction:hover svg {
+.quickPath a:hover svg {
   transform: translate(0.15rem, -0.15rem);
 }
 
-.formPanel {
-  background: white;
-  border: 1px solid rgb(30 31 34 / 0.14);
-  border-radius: var(--radius-md);
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-  scroll-margin-top: 7rem;
-}
-
-.formPanel h3 {
-  font-size: clamp(1.45rem, 2vw, 1.85rem);
-  font-weight: 580;
-  letter-spacing: -0.025em;
-  margin: 0 0 1.75rem;
-}
-
 .details {
-  border-top: 1px solid rgb(30 31 34 / 0.18);
   display: grid;
-  gap: 1.75rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: clamp(3rem, 6vw, 4.5rem) 0 0;
-  padding-top: clamp(1.75rem, 3vw, 2.25rem);
+  margin: 0;
 }
 
 .details div {
@@ -125,7 +159,7 @@
 }
 
 .details dt {
-  color: rgb(30 31 34 / 0.58);
+  color: rgb(255 255 255 / 0.58);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -133,34 +167,49 @@
 }
 
 .details dd {
-  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
-  font-weight: 580;
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  font-weight: 560;
   line-height: 1.45;
-  margin: 0.65rem 0 0;
+  margin: 0.55rem 0 0;
 }
 
-@media (min-width: 1000px) {
-  .workspace {
-    grid-template-columns: minmax(0, 1.08fr) minmax(25rem, 0.92fr);
+@media (min-width: 900px) {
+  .section {
+    align-items: center;
+    display: flex;
+    min-height: 100svh;
   }
 
-  .details {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .section > :global(.site-container) {
+    width: 100%;
+  }
+
+  .contactGrid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
   }
 }
 
-@media (max-width: 699px) {
-  .pathway {
-    grid-template-columns: auto minmax(0, 1fr);
+@media (max-width: 899px) {
+  .title {
+    font-size: clamp(2rem, 8.5vw, 3.2rem);
   }
 
-  .pathwayAction {
-    grid-column: 2;
-    justify-self: start;
+  .aside {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .aside {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 479px) {
+  .title {
+    font-size: clamp(1.85rem, 9vw, 2.5rem);
+  }
+
   .details {
     grid-template-columns: 1fr;
   }

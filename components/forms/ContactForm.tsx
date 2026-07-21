@@ -4,7 +4,11 @@ import { Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { FormField } from "@/components/ui/FormField";
 
-export function ContactForm() {
+type ContactFormProps = {
+  className?: string;
+};
+
+export function ContactForm({ className = "" }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -13,18 +17,9 @@ export function ContactForm() {
   }
 
   return (
-    <form className="form-grid" onSubmit={handleSubmit} aria-label="Contact enquiry">
-      <div className="form-grid form-grid-2">
-        <FormField id="contact-name" label="Name" placeholder="[Your name]" autoComplete="name" required />
-        <FormField id="contact-email" label="Email" placeholder="[Your email address]" type="email" autoComplete="email" required />
-      </div>
-      <FormField
-        id="contact-topic"
-        label="Enquiry type"
-        kind="select"
-        options={["[Choose an enquiry type]", "Candidate enquiry", "Employer enquiry", "General enquiry"]}
-        required
-      />
+    <form className={`form-grid ${className}`} onSubmit={handleSubmit} aria-label="Contact enquiry">
+      <FormField id="contact-name" label="Name" placeholder="[Your name]" autoComplete="name" required />
+      <FormField id="contact-email" label="Email" placeholder="[Your email address]" type="email" autoComplete="email" required />
       <FormField id="contact-message" label="Message" kind="textarea" placeholder="[How can we help?]" required />
       <button className="form-submit" type="submit" disabled={submitted}>
         <Send aria-hidden="true" size={18} />
