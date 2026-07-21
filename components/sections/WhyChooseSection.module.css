@@ -42,16 +42,20 @@
   }
 
   .layout {
-    align-items: center;
+    align-items: start;
     grid-template-areas: "visual content";
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   }
 
   .introduction {
+    align-self: start;
     grid-area: content;
+    position: sticky;
+    top: 8.5rem;
   }
 
   .visual {
+    align-self: start;
     grid-area: visual;
   }
 }
