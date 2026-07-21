@@ -1,5 +1,4 @@
 .form-section-layout,
-.why-layout,
 .faq-layout,
 .contact-layout {
   display: grid;
@@ -268,84 +267,6 @@
   text-align: center;
 }
 
-.why-graphic {
-  aspect-ratio: 1;
-  max-width: 34rem;
-  position: relative;
-  width: 100%;
-}
-
-.why-circle {
-  border-radius: 999px;
-  height: 68%;
-  position: absolute;
-  top: 16%;
-  width: 68%;
-}
-
-.why-circle-sand {
-  background: var(--sand);
-  left: 0;
-}
-
-.why-circle-violet {
-  background: var(--violet);
-  right: 0;
-}
-
-.why-graphic-label {
-  color: white;
-  font-size: 0.72rem;
-  font-weight: 700;
-  left: 50%;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.reason-list {
-  list-style: none;
-  margin: 2.5rem 0 0;
-  padding: 0;
-}
-
-.reason-list li {
-  align-items: flex-start;
-  border-bottom: 1px solid rgb(255 255 255 / 0.15);
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: auto 1fr;
-  padding-block: 1.1rem;
-}
-
-.reason-list li > span {
-  align-items: center;
-  background: var(--green);
-  border-radius: 999px;
-  display: flex;
-  height: 1.8rem;
-  justify-content: center;
-  width: 1.8rem;
-}
-
-.reason-list h3,
-.reason-list p {
-  margin: 0;
-}
-
-.reason-list h3 {
-  font-size: 1rem;
-}
-
-.reason-list p {
-  color: rgb(255 255 255 / 0.56);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  margin-top: 0.3rem;
-}
-
 .faq-list {
   border-top: 1px solid var(--line);
 }
@@ -581,7 +502,6 @@
     width: 100%;
   }
 
-  .why-layout,
   .faq-layout,
   .contact-layout {
     align-items: center;
