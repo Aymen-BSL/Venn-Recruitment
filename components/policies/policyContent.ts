@@ -59,7 +59,7 @@ export const policies: Record<PolicySlug, PolicyDocument> = {
         heading: "When information is shared",
         paragraphs: [
           "Candidate information may be shared with prospective employers and recruitment partners when relevant to an opportunity and with appropriate permission. We may also use service providers that support hosting, communications, document management, professional advice, and business operations.",
-          "We do not sell personal information. We may disclose information when required by law, to protect people or our services, or as part of a business reorganisation subject to appropriate safeguards.",
+          "We use ClickUp as an internal work-management and notification provider. A limited form summary may be sent there so our team can respond, but candidate CV files and private storage locations are not copied to ClickUp. We do not sell personal information. We may disclose information when required by law, to protect people or our services, or as part of a business reorganisation subject to appropriate safeguards.",
         ],
       },
       {

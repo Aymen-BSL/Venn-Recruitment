@@ -1,16 +1,18 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { submitContact } from "@/app/actions/contact";
 
-const { createContactSubmissionMock, DuplicateSubmissionErrorMock, passesAntiSpamMock } = vi.hoisted(() => {
+const { attemptClickUpDeliveryMock, createContactSubmissionMock, DuplicateSubmissionErrorMock, passesAntiSpamMock } = vi.hoisted(() => {
   class DuplicateSubmissionError extends Error {}
   return {
     createContactSubmissionMock: vi.fn(),
+    attemptClickUpDeliveryMock: vi.fn(),
     DuplicateSubmissionErrorMock: DuplicateSubmissionError,
     passesAntiSpamMock: vi.fn(),
   };
 });
 
 vi.mock("@/lib/forms/anti-spam", () => ({ passesAntiSpam: passesAntiSpamMock }));
+vi.mock("@/lib/clickup/deliver", () => ({ attemptClickUpDelivery: attemptClickUpDeliveryMock }));
 
 vi.mock("server-only", () => ({}));
 vi.mock("@/lib/submissions/repository", () => ({
@@ -34,6 +36,7 @@ describe("submitContact", () => {
     passesAntiSpamMock.mockReset().mockReturnValue(true);
     createContactSubmissionMock.mockReset();
     createContactSubmissionMock.mockResolvedValue("bc6d66a7-af24-47f6-98e1-e925dfad0723");
+    attemptClickUpDeliveryMock.mockReset().mockResolvedValue("sent");
   });
 
   it("returns field errors without persisting invalid input", async () => {

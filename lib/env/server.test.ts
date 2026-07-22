@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseRetentionEnv, parseServerEnv, parseSupabaseEnv } from "@/lib/env/server";
+import { parseClickUpEnv, parseRetentionEnv, parseServerEnv, parseSupabaseEnv } from "@/lib/env/server";
 
 const validEnv = {
   SUPABASE_URL: "https://example.supabase.co",
@@ -10,6 +10,8 @@ const validEnv = {
   CLICKUP_CONTACT_LIST_ID: "123456789",
   CLICKUP_CANDIDATE_LIST_ID: "234567890",
   CLICKUP_HIRING_LIST_ID: "345678901",
+  CLICKUP_WORKSPACE_ID: "456789012",
+  CLICKUP_CHAT_CHANNEL_ID: "chat-channel-id",
   CLICKUP_RETRY_SECRET: "a-random-secret-that-is-at-least-32-characters",
 };
 
@@ -59,6 +61,12 @@ describe("parseServerEnv", () => {
       SUPABASE_CV_BUCKET: validEnv.SUPABASE_CV_BUCKET,
       RETENTION_MAINTENANCE_SECRET: validEnv.RETENTION_MAINTENANCE_SECRET,
     });
+  });
+
+  it("validates ClickUp without requiring Supabase", () => {
+    const parsed = parseClickUpEnv(validEnv);
+    expect(parsed.CLICKUP_CHAT_CHANNEL_ID).toBe("chat-channel-id");
+    expect(parsed).not.toHaveProperty("SUPABASE_SECRET_KEY");
   });
 
   it("temporarily accepts the previous server-only Supabase key name", () => {

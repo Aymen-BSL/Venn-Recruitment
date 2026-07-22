@@ -16,7 +16,19 @@ const serverEnvSchema = supabaseEnvSchema.extend({
   CLICKUP_CONTACT_LIST_ID: z.string().regex(/^\d+$/),
   CLICKUP_CANDIDATE_LIST_ID: z.string().regex(/^\d+$/),
   CLICKUP_HIRING_LIST_ID: z.string().regex(/^\d+$/),
+  CLICKUP_WORKSPACE_ID: z.string().regex(/^\d+$/),
+  CLICKUP_CHAT_CHANNEL_ID: z.string().min(1).max(100),
   CLICKUP_RETRY_SECRET: z.string().min(32),
+});
+
+const clickupEnvSchema = serverEnvSchema.pick({
+  CLICKUP_API_TOKEN: true,
+  CLICKUP_CONTACT_LIST_ID: true,
+  CLICKUP_CANDIDATE_LIST_ID: true,
+  CLICKUP_HIRING_LIST_ID: true,
+  CLICKUP_WORKSPACE_ID: true,
+  CLICKUP_CHAT_CHANNEL_ID: true,
+  CLICKUP_RETRY_SECRET: true,
 });
 
 const retentionEnvSchema = supabaseEnvSchema.extend({
@@ -26,6 +38,7 @@ const retentionEnvSchema = supabaseEnvSchema.extend({
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
 export type SupabaseEnv = z.infer<typeof supabaseEnvSchema>;
 export type RetentionEnv = z.infer<typeof retentionEnvSchema>;
+export type ClickUpEnv = z.infer<typeof clickupEnvSchema>;
 
 function withCurrentSupabaseKeyName(environment: Record<string, string | undefined>) {
   return {
@@ -70,9 +83,18 @@ export function parseRetentionEnv(
   throw formatEnvironmentError(result.error);
 }
 
+export function parseClickUpEnv(
+  environment: Record<string, string | undefined>,
+): ClickUpEnv {
+  const result = clickupEnvSchema.safeParse(environment);
+  if (result.success) return result.data;
+  throw formatEnvironmentError(result.error);
+}
+
 let cachedServerEnv: ServerEnv | undefined;
 let cachedSupabaseEnv: SupabaseEnv | undefined;
 let cachedRetentionEnv: RetentionEnv | undefined;
+let cachedClickUpEnv: ClickUpEnv | undefined;
 
 export function getServerEnv(): ServerEnv {
   cachedServerEnv ??= parseServerEnv(process.env);
@@ -87,4 +109,9 @@ export function getSupabaseEnv(): SupabaseEnv {
 export function getRetentionEnv(): RetentionEnv {
   cachedRetentionEnv ??= parseRetentionEnv(process.env);
   return cachedRetentionEnv;
+}
+
+export function getClickUpEnv(): ClickUpEnv {
+  cachedClickUpEnv ??= parseClickUpEnv(process.env);
+  return cachedClickUpEnv;
 }

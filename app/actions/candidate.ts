@@ -4,6 +4,7 @@ import type { FormActionState } from "@/lib/forms/action-state";
 import { passesAntiSpam } from "@/lib/forms/anti-spam";
 import { InvalidFormDataError, readStringFields } from "@/lib/forms/form-data";
 import { candidateSchema } from "@/lib/forms/schemas";
+import { attemptClickUpDelivery } from "@/lib/clickup/deliver";
 import { deleteCvObject, uploadCv } from "@/lib/storage/cv-storage";
 import { CvValidationError, validateCv } from "@/lib/storage/validate-cv";
 import {
@@ -101,7 +102,7 @@ export async function submitCandidate(
   }
 
   try {
-    await createCandidateSubmission({
+    const submissionId = await createCandidateSubmission({
       ...parsed.data,
       consentedAt: new Date(),
       cv: {
@@ -111,6 +112,7 @@ export async function submitCandidate(
         type: validatedCv.type,
       },
     });
+    await attemptClickUpDelivery(submissionId).catch(() => undefined);
     return successState;
   } catch (error) {
     await deleteCvObject(storedCv.bucket, storedCv.objectPath).catch(() => false);

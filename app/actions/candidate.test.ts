@@ -12,11 +12,13 @@ const mocks = vi.hoisted(() => {
     CvValidationError,
     DuplicateSubmissionError,
     passesAntiSpam: vi.fn(),
+    attemptClickUpDelivery: vi.fn(),
   };
 });
 
 vi.mock("server-only", () => ({}));
 vi.mock("@/lib/forms/anti-spam", () => ({ passesAntiSpam: mocks.passesAntiSpam }));
+vi.mock("@/lib/clickup/deliver", () => ({ attemptClickUpDelivery: mocks.attemptClickUpDelivery }));
 vi.mock("@/lib/storage/validate-cv", () => ({
   validateCv: mocks.validateCv,
   CvValidationError: mocks.CvValidationError,
@@ -58,6 +60,7 @@ describe("submitCandidate", () => {
     mocks.uploadCv.mockReset().mockResolvedValue({ bucket: "candidate-cvs", objectPath: `${requestId}/random.pdf` });
     mocks.deleteCvObject.mockReset().mockResolvedValue(true);
     mocks.createCandidateSubmission.mockReset().mockResolvedValue("bc6d66a7-af24-47f6-98e1-e925dfad0723");
+    mocks.attemptClickUpDelivery.mockReset().mockResolvedValue("sent");
   });
 
   it("returns scalar field errors without inspecting the file", async () => {

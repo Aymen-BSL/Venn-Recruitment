@@ -4,6 +4,7 @@ import type { FormActionState } from "@/lib/forms/action-state";
 import { passesAntiSpam } from "@/lib/forms/anti-spam";
 import { InvalidFormDataError, readStringFields } from "@/lib/forms/form-data";
 import { contactSchema } from "@/lib/forms/schemas";
+import { attemptClickUpDelivery } from "@/lib/clickup/deliver";
 import {
   createContactSubmission,
   DuplicateSubmissionError,
@@ -57,10 +58,11 @@ export async function submitContact(
   }
 
   try {
-    await createContactSubmission({
+    const submissionId = await createContactSubmission({
       ...parsed.data,
       consentedAt: new Date(),
     });
+    await attemptClickUpDelivery(submissionId).catch(() => undefined);
     return successState;
   } catch (error) {
     if (error instanceof DuplicateSubmissionError) {

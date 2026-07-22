@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ClickUp task mapping > maps candidates without private CV metadata 1`] = `
+{
+  "description": "Submission ID: 10000000-0000-4000-8000-000000000001
+Received: 2026-07-22T12:00:00.000Z
+Name: Ada Lovelace
+Email: ada@example.com
+Phone: +216 00 000 000
+Current location: Tunis
+Preferred role: Engineer
+Preferred location: Remote
+CV: Stored privately in Supabase; not attached to ClickUp.",
+  "listId": "2",
+  "name": "Candidate submission - Ada Lovelace",
+}
+`;
+
+exports[`ClickUp task mapping > maps contact enquiries 1`] = `
+{
+  "description": "Submission ID: 10000000-0000-4000-8000-000000000001
+Received: 2026-07-22T12:00:00.000Z
+Name: Ada Lovelace
+Email: ada@example.com
+Message: Please call me.",
+  "listId": "1",
+  "name": "Website contact - Ada Lovelace",
+}
+`;
+
+exports[`ClickUp task mapping > maps hiring enquiries 1`] = `
+{
+  "description": "Submission ID: 10000000-0000-4000-8000-000000000001
+Received: 2026-07-22T12:00:00.000Z
+Name: Ada Lovelace
+Email: ada@example.com
+Company: Venn Labs
+Role: Engineer
+Location: Tunis
+Timeline: Soon
+Details: Senior hire",
+  "listId": "3",
+  "name": "Hiring enquiry - Venn Labs",
+}
+`;
