@@ -3,6 +3,7 @@ import {
   createCandidateSubmission,
   createContactSubmission,
   createHiringSubmission,
+  DuplicateSubmissionError,
 } from "@/lib/submissions/repository";
 
 const { rpcMock } = vi.hoisted(() => ({ rpcMock: vi.fn() }));
@@ -111,6 +112,21 @@ describe("submission repository", () => {
 
     await expect(promise).rejects.toThrow("Unable to save submission.");
     await expect(promise).rejects.not.toThrow("sensitive database details");
+  });
+
+  it("identifies duplicate request IDs without exposing database details", async () => {
+    rpcMock.mockResolvedValue({
+      data: null,
+      error: { code: "23505", message: "submissions_request_id_key contains sensitive values" },
+    });
+
+    await expect(createContactSubmission({
+      requestId,
+      name: "Ada Lovelace",
+      email: "ada@example.com",
+      message: "Please contact me.",
+      consentedAt,
+    })).rejects.toBeInstanceOf(DuplicateSubmissionError);
   });
 
   it("rejects malformed database responses without exposing them", async () => {

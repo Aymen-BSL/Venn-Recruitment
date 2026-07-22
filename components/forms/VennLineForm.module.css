@@ -112,6 +112,16 @@
   line-height: 1.55;
 }
 
+.form :global(.form-error) {
+  background: rgb(180 35 24 / 0.14);
+  border-left: 3px solid #ffd0ca;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: #ffd0ca;
+  line-height: 1.55;
+  margin: 0;
+  padding: 0.8rem 1rem;
+}
+
 .privacyNote {
   color: rgb(255 255 255 / 0.58);
   font-size: 0.75rem;
@@ -183,6 +193,12 @@
   background: color-mix(in srgb, var(--green) 10%, white);
   border-color: var(--green);
   color: var(--green-dark);
+}
+
+.light :global(.form-error) {
+  background: rgb(180 35 24 / 0.08);
+  border-color: #b42318;
+  color: #b42318;
 }
 
 .light .privacyNote {

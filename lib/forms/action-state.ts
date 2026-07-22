@@ -27,3 +27,10 @@ export type FormActionState =
   | ServerErrorActionState;
 
 export const initialFormActionState: IdleActionState = { status: "idle" };
+
+export function firstFieldError(
+  state: FormActionState,
+  field: string,
+): string | undefined {
+  return state.status === "validation_error" ? state.fieldErrors[field]?.[0] : undefined;
+}

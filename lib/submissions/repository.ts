@@ -30,12 +30,23 @@ export class SubmissionPersistenceError extends Error {
   }
 }
 
+export class DuplicateSubmissionError extends Error {
+  constructor() {
+    super("This submission has already been received.");
+    this.name = "DuplicateSubmissionError";
+  }
+}
+
 async function persistSubmission(
   functionName: string,
   parameters: Record<string, string | number | null>,
 ): Promise<string> {
   const { data, error } = await getSupabaseAdmin().rpc(functionName, parameters);
   const parsedId = z.uuid().safeParse(data);
+
+  if (error?.code === "23505") {
+    throw new DuplicateSubmissionError();
+  }
 
   if (error || !parsedId.success) {
     throw new SubmissionPersistenceError();

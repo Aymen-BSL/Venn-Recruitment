@@ -1,3 +1,5 @@
+begin;
+
 create type public.submission_kind as enum ('contact', 'candidate', 'hiring');
 create type public.submission_status as enum ('received', 'reviewing', 'closed');
 create type public.clickup_delivery_status as enum ('pending', 'processing', 'sent', 'failed');
@@ -297,3 +299,5 @@ on conflict (id) do update set
   public = excluded.public,
   file_size_limit = excluded.file_size_limit,
   allowed_mime_types = excluded.allowed_mime_types;
+
+commit;
