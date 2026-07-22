@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { parseServerEnv } from "@/lib/env/server";
+import { parseServerEnv, parseSupabaseEnv } from "@/lib/env/server";
 
 const validEnv = {
   SUPABASE_URL: "https://example.supabase.co",
-  SUPABASE_SERVICE_ROLE_KEY: "a-secure-service-role-key",
+  SUPABASE_SECRET_KEY: "sb_secret_a-secure-server-key",
   SUPABASE_CV_BUCKET: "candidate-cvs",
   CLICKUP_API_TOKEN: "pk_12345678901234567890",
   CLICKUP_CONTACT_LIST_ID: "123456789",
@@ -33,11 +33,33 @@ describe("parseServerEnv", () => {
 
   it("does not accept public aliases for secrets", () => {
     const withoutServiceKey: Record<string, string> = { ...validEnv };
-    delete withoutServiceKey.SUPABASE_SERVICE_ROLE_KEY;
+    delete withoutServiceKey.SUPABASE_SECRET_KEY;
 
     expect(() => parseServerEnv({
       ...withoutServiceKey,
-      NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY: validEnv.SUPABASE_SERVICE_ROLE_KEY,
-    })).toThrow(/SUPABASE_SERVICE_ROLE_KEY/);
+      NEXT_PUBLIC_SUPABASE_SECRET_KEY: validEnv.SUPABASE_SECRET_KEY,
+    })).toThrow(/SUPABASE_SECRET_KEY/);
+  });
+
+  it("validates Supabase without requiring future ClickUp configuration", () => {
+    const supabaseOnly = {
+      SUPABASE_URL: validEnv.SUPABASE_URL,
+      SUPABASE_SECRET_KEY: validEnv.SUPABASE_SECRET_KEY,
+      SUPABASE_CV_BUCKET: validEnv.SUPABASE_CV_BUCKET,
+    };
+
+    expect(parseSupabaseEnv(supabaseOnly)).toEqual(supabaseOnly);
+  });
+
+  it("temporarily accepts the previous server-only Supabase key name", () => {
+    expect(parseSupabaseEnv({
+      SUPABASE_URL: validEnv.SUPABASE_URL,
+      SUPABASE_SERVICE_ROLE_KEY: validEnv.SUPABASE_SECRET_KEY,
+      SUPABASE_CV_BUCKET: validEnv.SUPABASE_CV_BUCKET,
+    })).toEqual({
+      SUPABASE_URL: validEnv.SUPABASE_URL,
+      SUPABASE_SECRET_KEY: validEnv.SUPABASE_SECRET_KEY,
+      SUPABASE_CV_BUCKET: validEnv.SUPABASE_CV_BUCKET,
+    });
   });
 });
