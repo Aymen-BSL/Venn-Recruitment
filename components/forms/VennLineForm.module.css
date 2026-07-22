@@ -95,14 +95,14 @@
 }
 
 .form :global(.form-submit) {
-  background: var(--sand);
+  background: white;
   color: var(--ink);
   margin-top: 0.35rem;
   width: 100%;
 }
 
 .form :global(.form-submit:hover:not(:disabled)) {
-  background: white;
+  background: var(--paper);
 }
 
 .form :global(.form-success) {
