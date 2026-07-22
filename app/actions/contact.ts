@@ -1,6 +1,7 @@
 "use server";
 
 import type { FormActionState } from "@/lib/forms/action-state";
+import { passesAntiSpam } from "@/lib/forms/anti-spam";
 import { InvalidFormDataError, readStringFields } from "@/lib/forms/form-data";
 import { contactSchema } from "@/lib/forms/schemas";
 import {
@@ -8,7 +9,7 @@ import {
   DuplicateSubmissionError,
 } from "@/lib/submissions/repository";
 
-const contactFields = ["requestId", "name", "email", "message"] as const;
+const contactFields = ["requestId", "name", "email", "message", "formStartToken", "website"] as const;
 const successState = {
   status: "success",
   message: "Thank you. Your enquiry has been received.",
@@ -41,6 +42,17 @@ export async function submitContact(
       status: "validation_error",
       message: "Check the highlighted fields and try again.",
       fieldErrors: parsed.error.flatten().fieldErrors,
+    };
+  }
+
+  if (!passesAntiSpam({
+    honeypot: values.website,
+    requestId: parsed.data.requestId,
+    token: values.formStartToken,
+  })) {
+    return {
+      status: "server_error",
+      message: "We could not send your enquiry. Please try again.",
     };
   }
 

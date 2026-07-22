@@ -11,6 +11,7 @@ const supabaseEnvSchema = z.object({
 });
 
 const serverEnvSchema = supabaseEnvSchema.extend({
+  RETENTION_MAINTENANCE_SECRET: z.string().min(32),
   CLICKUP_API_TOKEN: z.string().min(20),
   CLICKUP_CONTACT_LIST_ID: z.string().regex(/^\d+$/),
   CLICKUP_CANDIDATE_LIST_ID: z.string().regex(/^\d+$/),
@@ -18,8 +19,13 @@ const serverEnvSchema = supabaseEnvSchema.extend({
   CLICKUP_RETRY_SECRET: z.string().min(32),
 });
 
+const retentionEnvSchema = supabaseEnvSchema.extend({
+  RETENTION_MAINTENANCE_SECRET: z.string().min(32),
+});
+
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
 export type SupabaseEnv = z.infer<typeof supabaseEnvSchema>;
+export type RetentionEnv = z.infer<typeof retentionEnvSchema>;
 
 function withCurrentSupabaseKeyName(environment: Record<string, string | undefined>) {
   return {
@@ -56,8 +62,17 @@ export function parseSupabaseEnv(
   throw formatEnvironmentError(result.error);
 }
 
+export function parseRetentionEnv(
+  environment: Record<string, string | undefined>,
+): RetentionEnv {
+  const result = retentionEnvSchema.safeParse(withCurrentSupabaseKeyName(environment));
+  if (result.success) return result.data;
+  throw formatEnvironmentError(result.error);
+}
+
 let cachedServerEnv: ServerEnv | undefined;
 let cachedSupabaseEnv: SupabaseEnv | undefined;
+let cachedRetentionEnv: RetentionEnv | undefined;
 
 export function getServerEnv(): ServerEnv {
   cachedServerEnv ??= parseServerEnv(process.env);
@@ -67,4 +82,9 @@ export function getServerEnv(): ServerEnv {
 export function getSupabaseEnv(): SupabaseEnv {
   cachedSupabaseEnv ??= parseSupabaseEnv(process.env);
   return cachedSupabaseEnv;
+}
+
+export function getRetentionEnv(): RetentionEnv {
+  cachedRetentionEnv ??= parseRetentionEnv(process.env);
+  return cachedRetentionEnv;
 }

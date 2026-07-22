@@ -10,6 +10,7 @@ import {
   initialFormActionState,
   type FormActionState,
 } from "@/lib/forms/action-state";
+import { useAntiSpamToken } from "@/lib/forms/use-anti-spam";
 import styles from "./VennLineForm.module.css";
 
 type ContactFormProps = {
@@ -19,6 +20,7 @@ type ContactFormProps = {
 export function ContactForm({ className = "" }: ContactFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const [requestId, setRequestId] = useState(() => crypto.randomUUID());
+  const { ensureToken, resetToken, token } = useAntiSpamToken(requestId);
   const [state, formAction] = useActionState(async (
     previousState: FormActionState,
     formData: FormData,
@@ -27,13 +29,19 @@ export function ContactForm({ className = "" }: ContactFormProps) {
     if (nextState.status === "success") {
       formRef.current?.reset();
       setRequestId(crypto.randomUUID());
+      resetToken();
     }
     return nextState;
   }, initialFormActionState);
 
   return (
-    <form ref={formRef} action={formAction} className={`form-grid ${styles.form} ${className}`} aria-label="Contact enquiry">
+    <form ref={formRef} action={formAction} onFocusCapture={ensureToken} onPointerEnter={ensureToken} className={`form-grid ${styles.form} ${className}`} aria-label="Contact enquiry">
       <input suppressHydrationWarning type="hidden" name="requestId" value={requestId} />
+      <input type="hidden" name="formStartToken" value={token} />
+      <div className={styles.formTrap} aria-hidden="true">
+        <label htmlFor={`contact-website-${requestId}`}>Website</label>
+        <input id={`contact-website-${requestId}`} name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <FormField name="name" id="contact-name" label="Name" placeholder="Name" autoComplete="name" error={firstFieldError(state, "name")} required />
       <FormField name="email" id="contact-email" label="Email" placeholder="Email" type="email" autoComplete="email" error={firstFieldError(state, "email")} required />
       <FormField name="message" id="contact-message" label="Message" kind="textarea" placeholder="Message" error={firstFieldError(state, "message")} required />

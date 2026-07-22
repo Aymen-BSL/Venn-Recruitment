@@ -1,10 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { parseServerEnv, parseSupabaseEnv } from "@/lib/env/server";
+import { parseRetentionEnv, parseServerEnv, parseSupabaseEnv } from "@/lib/env/server";
 
 const validEnv = {
   SUPABASE_URL: "https://example.supabase.co",
   SUPABASE_SECRET_KEY: "sb_secret_a-secure-server-key",
   SUPABASE_CV_BUCKET: "candidate-cvs",
+  RETENTION_MAINTENANCE_SECRET: "retention-secret-at-least-32-characters",
   CLICKUP_API_TOKEN: "pk_12345678901234567890",
   CLICKUP_CONTACT_LIST_ID: "123456789",
   CLICKUP_CANDIDATE_LIST_ID: "234567890",
@@ -49,6 +50,15 @@ describe("parseServerEnv", () => {
     };
 
     expect(parseSupabaseEnv(supabaseOnly)).toEqual(supabaseOnly);
+  });
+
+  it("validates retention maintenance without requiring ClickUp", () => {
+    expect(parseRetentionEnv(validEnv)).toEqual({
+      SUPABASE_URL: validEnv.SUPABASE_URL,
+      SUPABASE_SECRET_KEY: validEnv.SUPABASE_SECRET_KEY,
+      SUPABASE_CV_BUCKET: validEnv.SUPABASE_CV_BUCKET,
+      RETENTION_MAINTENANCE_SECRET: validEnv.RETENTION_MAINTENANCE_SECRET,
+    });
   });
 
   it("temporarily accepts the previous server-only Supabase key name", () => {

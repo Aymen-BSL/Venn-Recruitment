@@ -1,6 +1,7 @@
 "use server";
 
 import type { FormActionState } from "@/lib/forms/action-state";
+import { passesAntiSpam } from "@/lib/forms/anti-spam";
 import { InvalidFormDataError, readStringFields } from "@/lib/forms/form-data";
 import { candidateSchema } from "@/lib/forms/schemas";
 import { deleteCvObject, uploadCv } from "@/lib/storage/cv-storage";
@@ -20,6 +21,8 @@ const candidateFields = [
   "preferredLocation",
   "linkedInUrl",
   "note",
+  "formStartToken",
+  "website",
 ] as const;
 
 const successState = {
@@ -63,6 +66,14 @@ export async function submitCandidate(
   const parsed = candidateSchema.safeParse(values);
   if (!parsed.success) {
     return validationError(parsed.error.flatten().fieldErrors);
+  }
+
+  if (!passesAntiSpam({
+    honeypot: values.website,
+    requestId: parsed.data.requestId,
+    token: values.formStartToken,
+  })) {
+    return serverErrorState;
   }
 
   const file = readCv(formData);

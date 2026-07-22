@@ -1,6 +1,7 @@
 "use server";
 
 import type { FormActionState } from "@/lib/forms/action-state";
+import { passesAntiSpam } from "@/lib/forms/anti-spam";
 import { InvalidFormDataError, readStringFields } from "@/lib/forms/form-data";
 import { hiringSchema } from "@/lib/forms/schemas";
 import {
@@ -18,6 +19,8 @@ const hiringFields = [
   "location",
   "timeline",
   "details",
+  "formStartToken",
+  "website",
 ] as const;
 const successState = {
   status: "success",
@@ -51,6 +54,17 @@ export async function submitHiringEnquiry(
       status: "validation_error",
       message: "Check the highlighted fields and try again.",
       fieldErrors: parsed.error.flatten().fieldErrors,
+    };
+  }
+
+  if (!passesAntiSpam({
+    honeypot: values.website,
+    requestId: parsed.data.requestId,
+    token: values.formStartToken,
+  })) {
+    return {
+      status: "server_error",
+      message: "We could not send your hiring enquiry. Please try again.",
     };
   }
 

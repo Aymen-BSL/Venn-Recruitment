@@ -11,11 +11,13 @@ import {
   initialFormActionState,
   type FormActionState,
 } from "@/lib/forms/action-state";
+import { useAntiSpamToken } from "@/lib/forms/use-anti-spam";
 import styles from "./VennLineForm.module.css";
 
 export function VacancyForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [requestId, setRequestId] = useState(() => crypto.randomUUID());
+  const { ensureToken, resetToken, token } = useAntiSpamToken(requestId);
   const [state, formAction] = useActionState(async (
     previousState: FormActionState,
     formData: FormData,
@@ -24,13 +26,19 @@ export function VacancyForm() {
     if (nextState.status === "success") {
       formRef.current?.reset();
       setRequestId(crypto.randomUUID());
+      resetToken();
     }
     return nextState;
   }, initialFormActionState);
 
   return (
-    <form ref={formRef} action={formAction} className={`form-grid ${styles.form} ${styles.light}`} aria-label="Hiring enquiry">
+    <form ref={formRef} action={formAction} onFocusCapture={ensureToken} onPointerEnter={ensureToken} className={`form-grid ${styles.form} ${styles.light}`} aria-label="Hiring enquiry">
       <input suppressHydrationWarning type="hidden" name="requestId" value={requestId} />
+      <input type="hidden" name="formStartToken" value={token} />
+      <div className={styles.formTrap} aria-hidden="true">
+        <label htmlFor={`vacancy-website-${requestId}`}>Website</label>
+        <input id={`vacancy-website-${requestId}`} name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="form-grid form-grid-2">
         <FormField name="name" id="vacancy-name" label="Contact name" placeholder="Contact name" autoComplete="name" error={firstFieldError(state, "name")} required />
         <FormField name="company" id="vacancy-company" label="Company" placeholder="Company name" autoComplete="organization" error={firstFieldError(state, "company")} required />

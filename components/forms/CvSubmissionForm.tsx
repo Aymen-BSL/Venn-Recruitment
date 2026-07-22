@@ -11,11 +11,13 @@ import {
   initialFormActionState,
   type FormActionState,
 } from "@/lib/forms/action-state";
+import { useAntiSpamToken } from "@/lib/forms/use-anti-spam";
 import styles from "./VennLineForm.module.css";
 
 export function CvSubmissionForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [requestId, setRequestId] = useState(() => crypto.randomUUID());
+  const { ensureToken, resetToken, token } = useAntiSpamToken(requestId);
   const [fileInputKey, setFileInputKey] = useState(0);
   const [state, formAction] = useActionState(async (
     previousState: FormActionState,
@@ -25,14 +27,20 @@ export function CvSubmissionForm() {
     if (nextState.status === "success") {
       formRef.current?.reset();
       setRequestId(crypto.randomUUID());
+      resetToken();
       setFileInputKey((key) => key + 1);
     }
     return nextState;
   }, initialFormActionState);
 
   return (
-    <form ref={formRef} action={formAction} className={`form-grid ${styles.form} ${styles.light}`} aria-label="CV submission">
+    <form ref={formRef} action={formAction} onFocusCapture={ensureToken} onPointerEnter={ensureToken} className={`form-grid ${styles.form} ${styles.light}`} aria-label="CV submission">
       <input suppressHydrationWarning type="hidden" name="requestId" value={requestId} />
+      <input type="hidden" name="formStartToken" value={token} />
+      <div className={styles.formTrap} aria-hidden="true">
+        <label htmlFor={`candidate-website-${requestId}`}>Website</label>
+        <input id={`candidate-website-${requestId}`} name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="form-grid form-grid-2">
         <FormField name="name" id="cv-name" label="Full name" placeholder="Full name" autoComplete="name" error={firstFieldError(state, "name")} required />
         <FormField name="email" id="cv-email" label="Email address" placeholder="Email address" type="email" autoComplete="email" error={firstFieldError(state, "email")} required />

@@ -71,8 +71,9 @@ export const policies: Record<PolicySlug, PolicyDocument> = {
       {
         heading: "Retention and security",
         paragraphs: [
-          "We keep personal information only for as long as it is reasonably needed for the purpose collected, an ongoing recruitment relationship, dispute handling, or legal and regulatory requirements. Retention periods vary according to the record and the country involved.",
-          "We use proportionate technical and organisational measures to protect information. No internet transmission or storage system can be guaranteed completely secure, so please avoid sending unnecessary sensitive information through general contact forms.",
+          "Information submitted through the Contact, Hire Talent, and Submit CV forms is stored in our restricted recruitment database. CV documents are kept in private, non-public object storage and are not made available through permanent public links.",
+          "Website form submissions and uploaded CVs are scheduled for deletion 12 months after submission. We may retain a record longer when reasonably required for an active recruitment relationship, a dispute, or a legal or regulatory obligation; this retention wording should be reviewed by qualified counsel before launch.",
+          "We use proportionate technical and organisational measures to protect information, including server-side validation and access controls. No internet transmission or storage system can be guaranteed completely secure, so please avoid sending unnecessary sensitive information through general contact forms.",
         ],
       },
       {

@@ -11,10 +11,12 @@ const mocks = vi.hoisted(() => {
     validateCv: vi.fn(),
     CvValidationError,
     DuplicateSubmissionError,
+    passesAntiSpam: vi.fn(),
   };
 });
 
 vi.mock("server-only", () => ({}));
+vi.mock("@/lib/forms/anti-spam", () => ({ passesAntiSpam: mocks.passesAntiSpam }));
 vi.mock("@/lib/storage/validate-cv", () => ({
   validateCv: mocks.validateCv,
   CvValidationError: mocks.CvValidationError,
@@ -48,6 +50,7 @@ function validCandidateData() {
 
 describe("submitCandidate", () => {
   beforeEach(() => {
+    mocks.passesAntiSpam.mockReset().mockReturnValue(true);
     vi.spyOn(console, "error").mockImplementation(() => undefined);
     mocks.validateCv.mockReset().mockResolvedValue({
       bytes: new Uint8Array([1, 2, 3]), extension: "pdf", name: "candidate.pdf", size: 3, type: pdfType,
