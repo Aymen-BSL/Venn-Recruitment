@@ -2,55 +2,78 @@
 
 import { Send } from "lucide-react";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { useActionState, useRef, useState } from "react";
+import { submitCandidate } from "@/app/actions/candidate";
+import { SubmitButton } from "@/components/forms/SubmitButton";
 import { FormField } from "@/components/ui/FormField";
+import {
+  firstFieldError,
+  initialFormActionState,
+  type FormActionState,
+} from "@/lib/forms/action-state";
 import styles from "./VennLineForm.module.css";
 
 export function CvSubmissionForm() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-  }
+  const formRef = useRef<HTMLFormElement>(null);
+  const [requestId, setRequestId] = useState(() => crypto.randomUUID());
+  const [fileInputKey, setFileInputKey] = useState(0);
+  const [state, formAction] = useActionState(async (
+    previousState: FormActionState,
+    formData: FormData,
+  ) => {
+    const nextState = await submitCandidate(previousState, formData);
+    if (nextState.status === "success") {
+      formRef.current?.reset();
+      setRequestId(crypto.randomUUID());
+      setFileInputKey((key) => key + 1);
+    }
+    return nextState;
+  }, initialFormActionState);
 
   return (
-    <form className={`form-grid ${styles.form} ${styles.light}`} onSubmit={handleSubmit} aria-label="CV submission">
+    <form ref={formRef} action={formAction} className={`form-grid ${styles.form} ${styles.light}`} aria-label="CV submission">
+      <input suppressHydrationWarning type="hidden" name="requestId" value={requestId} />
       <div className="form-grid form-grid-2">
-        <FormField id="cv-name" label="Full name" placeholder="Full name" autoComplete="name" required />
-        <FormField id="cv-email" label="Email address" placeholder="Email address" type="email" autoComplete="email" required />
+        <FormField name="name" id="cv-name" label="Full name" placeholder="Full name" autoComplete="name" error={firstFieldError(state, "name")} required />
+        <FormField name="email" id="cv-email" label="Email address" placeholder="Email address" type="email" autoComplete="email" error={firstFieldError(state, "email")} required />
       </div>
       <div className="form-grid form-grid-2">
-        <FormField id="cv-phone" label="Phone number" placeholder="Phone number" type="tel" autoComplete="tel" required />
-        <FormField id="cv-location" label="Current location" placeholder="Current city and country" autoComplete="address-level2" required />
+        <FormField name="phone" id="cv-phone" label="Phone number" placeholder="Phone number" type="tel" autoComplete="tel" error={firstFieldError(state, "phone")} required />
+        <FormField name="location" id="cv-location" label="Current location" placeholder="Current city and country" autoComplete="address-level2" error={firstFieldError(state, "location")} required />
       </div>
       <div className="form-grid form-grid-2">
-        <FormField id="cv-role" label="Preferred role" placeholder="Preferred role or discipline" required />
-        <FormField id="cv-preferred-location" label="Preferred work location" placeholder="Preferred work location" required />
+        <FormField name="preferredRole" id="cv-role" label="Preferred role" placeholder="Preferred role or discipline" error={firstFieldError(state, "preferredRole")} required />
+        <FormField name="preferredLocation" id="cv-preferred-location" label="Preferred work location" placeholder="Preferred work location" error={firstFieldError(state, "preferredLocation")} required />
       </div>
-      <FormField id="cv-linkedin" label="LinkedIn profile" placeholder="LinkedIn profile URL (optional)" type="url" autoComplete="url" />
+      <FormField name="linkedInUrl" id="cv-linkedin" label="LinkedIn profile" placeholder="LinkedIn profile URL (optional)" type="url" autoComplete="url" error={firstFieldError(state, "linkedInUrl")} />
       <FormField
+        key={fileInputKey}
+        name="cv"
         id="cv-file"
         label="CV document"
         type="file"
         accept=".pdf,.doc,.docx"
-        hint="Upload your CV as a PDF, DOC, or DOCX file."
+        hint="Upload your CV as a PDF, DOC, or DOCX file, up to 3 MB."
+        error={firstFieldError(state, "cv")}
         required
       />
-      <FormField id="cv-note" label="Supporting note" kind="textarea" placeholder="Tell us what you want from your next move (optional)" />
+      <FormField name="note" id="cv-note" label="Supporting note" kind="textarea" placeholder="Tell us what you want from your next move (optional)" error={firstFieldError(state, "note")} />
       <p className={styles.privacyNote}>
         By submitting this form, you confirm that Venn Recruitment may use your
         information to provide recruitment services. See our{" "}
         <Link href="/privacy-policy">Privacy Policy</Link>.
       </p>
-      <button className="form-submit" type="submit" disabled={submitted}>
-        <Send aria-hidden="true" size={18} />
-        {submitted ? "CV Submitted" : "Submit Your CV"}
-      </button>
-      {submitted ? (
-        <p className="form-success" role="status">
-          Thank you. Your profile has been received for review.
-        </p>
+      <SubmitButton
+        className="form-submit"
+        icon={<Send aria-hidden="true" size={18} />}
+        pendingLabel="Uploading CV…"
+      >
+        {state.status === "success" ? "Submit Another CV" : "Submit Your CV"}
+      </SubmitButton>
+      {state.status === "success" ? (
+        <p className="form-success" role="status">{state.message}</p>
+      ) : state.status === "validation_error" || state.status === "server_error" ? (
+        <p className="form-error" role="alert">{state.message}</p>
       ) : null}
     </form>
   );
