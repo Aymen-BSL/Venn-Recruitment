@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { Reveal } from "@/components/animation/Reveal";
-import { AboutIntersection } from "@/components/graphics/AboutIntersection";
 import { Container } from "@/components/ui/Container";
 
 export function AboutSection() {
@@ -22,7 +22,16 @@ export function AboutSection() {
             </div>
           </div>
 
-          <AboutIntersection />
+          <figure className="about-visual">
+            <Image
+              className="about-visual-image"
+              src="/media/about-recruitment-v3.webp"
+              alt="Recruitment professionals in conversation alongside the Venn Recruitment mark and a meeting room"
+              width={1200}
+              height={998}
+              sizes="(min-width: 900px) 48vw, 100vw"
+            />
+          </figure>
         </Reveal>
       </Container>
     </section>

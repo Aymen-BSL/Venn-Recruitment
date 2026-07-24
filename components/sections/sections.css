@@ -38,89 +38,17 @@
   margin: 0;
 }
 
-.about-intersection {
+.about-visual {
   align-self: center;
-  aspect-ratio: 760 / 560;
   margin: 0;
-  max-width: 47.5rem;
-  position: relative;
+  max-width: 38rem;
   width: 100%;
 }
 
-.about-intersection-lines {
+.about-visual-image {
   display: block;
-  height: 100%;
-  overflow: visible;
+  height: auto;
   width: 100%;
-}
-
-.about-outline {
-  fill: none;
-  stroke-dasharray: 1.2 2.15;
-  stroke-linecap: round;
-  stroke-width: 2;
-  vector-effect: non-scaling-stroke;
-}
-
-.about-outline-company {
-  stroke: color-mix(in srgb, var(--ink) 72%, transparent);
-}
-
-.about-outline-candidate {
-  stroke: var(--green);
-}
-
-.about-intersection-label {
-  display: grid;
-  gap: 0.45rem;
-  max-width: 11rem;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.about-intersection-label span {
-  color: rgb(30 31 34 / 0.54);
-  font-size: clamp(0.65rem, 0.85vw, 0.78rem);
-  font-weight: 650;
-}
-
-.about-intersection-label strong {
-  font-size: clamp(0.92rem, 1.35vw, 1.15rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.18;
-  text-wrap: balance;
-}
-
-.about-intersection-company {
-  left: 27.5%;
-  top: 30%;
-}
-
-.about-intersection-candidate {
-  left: 72.5%;
-  top: 70%;
-}
-
-.about-logo-placeholder {
-  align-items: center;
-  background: white;
-  border: 1px solid var(--ink);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 10px 30px rgb(30 31 34 / 0.08);
-  display: flex;
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  font-weight: 700;
-  height: clamp(3.7rem, 7vw, 5rem);
-  justify-content: center;
-  left: 50%;
-  letter-spacing: -0.04em;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(3.7rem, 7vw, 5rem);
 }
 
 .section-intro-row .button,
@@ -351,6 +279,11 @@
     grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
   }
 
+  .about-visual {
+    justify-self: center;
+    max-width: clamp(25rem, 32vw, 30rem);
+  }
+
   .form-section-layout {
     align-items: start;
     grid-template-columns: minmax(0, 0.8fr) minmax(30rem, 1.2fr);
@@ -376,7 +309,7 @@
     margin-top: 1.15rem;
   }
 
-  .about-intersection {
-    max-width: 41rem;
+  .about-visual {
+    max-width: min(27rem, 56svh);
   }
 }
