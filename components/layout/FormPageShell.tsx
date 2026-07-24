@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { Container } from "@/components/ui/Container";
 
 type FormPageShellProps = {
@@ -30,7 +31,7 @@ export function FormPageShell({
       <header className="form-page-header">
         <Container className="form-page-nav">
           <Link className="form-page-wordmark" href="/" aria-label="Venn Recruitment home">
-            Venn Recruitment
+            <BrandLogo className="form-page-logo" eager tone="dark" />
           </Link>
           <nav className="form-page-nav-actions" aria-label="Form page navigation">
             <Link className="form-page-back" href="/">

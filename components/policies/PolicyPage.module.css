@@ -22,9 +22,14 @@
 }
 
 .wordmark {
-  font-size: 1.02rem;
-  font-weight: 700;
-  letter-spacing: -0.045em;
+  align-items: center;
+  display: inline-flex;
+}
+
+.logo {
+  display: block;
+  height: auto;
+  width: clamp(7.75rem, 14vw, 8.75rem);
 }
 
 .returnLink {

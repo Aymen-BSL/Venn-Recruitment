@@ -25,13 +25,16 @@
 }
 
 .wordmark {
-  color: currentColor;
-  font-size: 1.02rem;
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1;
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
   text-decoration: none;
-  white-space: nowrap;
+}
+
+.header-brand-logo {
+  display: block;
+  height: auto;
+  width: clamp(7.75rem, 10vw, 8.75rem);
 }
 
 .desktop-nav,

@@ -1,6 +1,7 @@
 import { ArrowUp, Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import styles from "./FooterSection.module.css";
 
 const exploreLinks = [
@@ -30,8 +31,12 @@ export function FooterSection({ backToTopHref = "#home" }: FooterSectionProps) {
       <Container>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Link className={styles.wordmark} href="/">
-              Venn Recruitment
+            <Link
+              aria-label="Venn Recruitment home"
+              className={styles.wordmark}
+              href="/"
+            >
+              <BrandLogo className={styles.logo} tone="light" />
             </Link>
             <p>
               Connecting companies and professionals across the Middle East and

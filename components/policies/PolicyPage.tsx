@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { FooterSection } from "@/components/sections/FooterSection";
 import { LegalLinksSection } from "@/components/sections/LegalLinksSection";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { Container } from "@/components/ui/Container";
 import { policies, policyOrder, type PolicyDocument } from "./policyContent";
 import styles from "./PolicyPage.module.css";
@@ -22,7 +23,7 @@ export function PolicyPage({ policy }: PolicyPageProps) {
       <header className={styles.header}>
         <Container className={styles.headerInner}>
           <Link className={styles.wordmark} href="/" aria-label="Venn Recruitment home">
-            Venn Recruitment
+            <BrandLogo className={styles.logo} eager tone="dark" />
           </Link>
           <Link className={styles.returnLink} href="/">
             <ArrowLeft aria-hidden="true" size={16} strokeWidth={1.8} />

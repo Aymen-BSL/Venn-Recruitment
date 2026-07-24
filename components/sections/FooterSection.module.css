@@ -16,14 +16,14 @@
 }
 
 .wordmark {
-  color: white;
-  display: inline-block;
-  font-family: var(--font-sans), Arial, sans-serif;
-  font-size: clamp(2.4rem, 5vw, 5rem);
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 0.95;
+  display: inline-flex;
   text-decoration: none;
+}
+
+.logo {
+  display: block;
+  height: auto;
+  width: clamp(15rem, 30vw, 23rem);
 }
 
 .brand p {

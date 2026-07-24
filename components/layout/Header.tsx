@@ -5,6 +5,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 const navigation = [
   ["Home", "#home"],
@@ -54,7 +55,11 @@ export function Header() {
     <header className={`site-header ${scrolled ? "site-header-scrolled" : ""}`}>
       <div className="site-container header-inner">
         <Link href="#home" className="wordmark" aria-label="Venn Recruitment home" onClick={closeMenu}>
-          <span>Venn Recruitment</span>
+          <BrandLogo
+            className="header-brand-logo"
+            eager
+            tone={scrolled ? "dark" : "light"}
+          />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
