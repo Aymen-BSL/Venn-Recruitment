@@ -20,7 +20,7 @@ Install dependencies:
 npm install
 ```
 
-Copy `.env.example` to `.env.local` and provide the server-only Supabase values. Generate both maintenance secrets with a cryptographically secure password generator; each must be at least 32 characters. Never prefix a secret with `NEXT_PUBLIC_`.
+Copy `.env.example` to `.env.local` and provide the server-only Supabase and ClickUp values. Generate both maintenance secrets with a cryptographically secure password generator; each must be at least 32 characters. Never prefix a secret with `NEXT_PUBLIC_`.
 
 Apply the SQL files in order through the Supabase SQL Editor:
 
@@ -70,14 +70,16 @@ app/                  Next.js routes, metadata, and global styles
 components/
   animation/          Reveal and hero motion components
   forms/              Contact, CV, and hiring forms
-  graphics/           Hero and Venn intersection graphics
+  graphics/           Hero media components
   interactive/        Interactive FAQ components
   layout/             Shared headers and page shells
   policies/           Shared policy page layout and content
   sections/           Landing-page sections
   ui/                 Reusable interface components
 hooks/                Shared React hooks
-public/media/         Video and image assets
+public/brand/         Venn wordmark and mark variants
+public/media/         Optimized video and image assets
+public/venn-favicon.svg Branded browser favicon
 lib/clickup/          Safe task mapping, API client, and durable delivery
 lib/forms/            Validation, action-state, and anti-spam contracts
 lib/storage/          Private CV validation and storage operations
