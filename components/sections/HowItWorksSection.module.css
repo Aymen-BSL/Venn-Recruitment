@@ -83,7 +83,6 @@
   .section {
     align-items: center;
     display: flex;
-    min-height: 100svh;
   }
 
   .section > :global(.site-container) {
@@ -119,5 +118,11 @@
 
   .stepContent h3 {
     min-height: 1.15em;
+  }
+}
+
+@media (min-width: 1100px) {
+  .section {
+    min-height: 100svh;
   }
 }

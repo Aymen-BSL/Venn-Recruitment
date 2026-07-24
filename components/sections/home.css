@@ -142,6 +142,20 @@
   margin: clamp(1.4rem, 3.2svh, 1.9rem) 0 0;
 }
 
+@media (max-width: 1099px) {
+  .home-section,
+  .hero-motion {
+    height: auto;
+  }
+
+  .hero-container {
+    height: auto;
+    justify-content: flex-start;
+    padding-bottom: clamp(5.5rem, 10vw, 10rem);
+    padding-top: calc(5rem + clamp(5.5rem, 10vw, 10rem));
+  }
+}
+
 @media (max-width: 759px) {
   .hero-overlay {
     background:

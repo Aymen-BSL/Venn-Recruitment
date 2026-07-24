@@ -225,7 +225,6 @@
   .employers-section {
     align-items: center;
     display: flex;
-    min-height: 100svh;
   }
 
   .employers-section > .site-container {
@@ -264,8 +263,6 @@
   .about-section {
     align-items: center;
     display: flex;
-    height: 100svh;
-    max-height: 100svh;
     padding-block: clamp(3rem, 7svh, 5.25rem);
   }
 
@@ -291,6 +288,17 @@
 
   .form-section-reverse {
     grid-template-columns: minmax(30rem, 1.2fr) minmax(0, 0.8fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .employers-section {
+    min-height: 100svh;
+  }
+
+  .about-section {
+    height: 100svh;
+    max-height: 100svh;
   }
 }
 
