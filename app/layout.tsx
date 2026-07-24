@@ -12,7 +12,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
   title: "Venn Recruitment | [Page title]",
   description: "[Meta description for Venn Recruitment]",
-  icons: { icon: "/icon.svg" },
+  icons: {
+    icon: [{ url: "/venn-favicon.svg?v=2", type: "image/svg+xml" }],
+    shortcut: "/venn-favicon.svg?v=2",
+  },
   openGraph: {
     title: "Venn Recruitment | [Open Graph title]",
     description: "[Open Graph description]",
