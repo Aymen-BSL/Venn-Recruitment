@@ -130,8 +130,7 @@ The current form architecture does not set cookies or use browser storage for an
 ## Before production
 
 - Replace placeholder contact details, office information, and operating hours.
-- Replace placeholder root metadata and Open Graph copy in `app/layout.tsx`.
-- Configure the real production domain in `metadataBase`.
+- Update `metadataBase` and canonical URLs when moving from the current Vercel URL to a custom production domain.
 - Configure `RETENTION_MAINTENANCE_SECRET` and a daily maintenance scheduler.
 - Apply all four Supabase migrations and run all three SQL test files.
 - Test all three form workflows against the non-production Supabase project.

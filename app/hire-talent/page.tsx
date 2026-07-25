@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Hire Talent | Venn Recruitment",
   description:
     "Tell Venn Recruitment about your hiring needs and start a focused search for carefully matched talent.",
+  alternates: {
+    canonical: "/hire-talent",
+  },
 };
 
 export default function HireTalentPage() {

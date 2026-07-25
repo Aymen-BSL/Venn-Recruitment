@@ -7,6 +7,9 @@ const policy = getPolicy("privacy-policy");
 export const metadata: Metadata = {
   title: `${policy.title} | Venn Recruitment`,
   description: policy.description,
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

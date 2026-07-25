@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Venn Recruitment social preview</title>
-  <desc id="desc">Temporary branded social preview for Venn Recruitment</desc>
-  <rect width="1200" height="630" fill="#F8F9FA"/>
-  <circle cx="530" cy="315" r="220" fill="#217B6D" fill-opacity=".92"/>
-  <circle cx="710" cy="315" r="220" fill="#7268B6" fill-opacity=".82"/>
-  <text x="600" y="302" fill="#F8F9FA" font-family="Arial, sans-serif" font-size="66" font-weight="700" text-anchor="middle">Venn Recruitment</text>
-  <text x="600" y="365" fill="#F8F9FA" font-family="Arial, sans-serif" font-size="26" text-anchor="middle">[Social preview description]</text>
-</svg>

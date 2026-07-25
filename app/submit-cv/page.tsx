@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Submit Your CV | Venn Recruitment",
   description:
     "Share your CV with Venn Recruitment and be considered for relevant opportunities across the Middle East and international markets.",
+  alternates: {
+    canonical: "/submit-cv",
+  },
 };
 
 export default function SubmitCvPage() {

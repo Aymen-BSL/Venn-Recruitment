@@ -7,6 +7,9 @@ const policy = getPolicy("cookie-policy");
 export const metadata: Metadata = {
   title: `${policy.title} | Venn Recruitment`,
   description: policy.description,
+  alternates: {
+    canonical: "/cookie-policy",
+  },
 };
 
 export default function CookiePolicyPage() {
