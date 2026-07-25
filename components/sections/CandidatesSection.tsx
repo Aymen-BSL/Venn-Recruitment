@@ -32,6 +32,13 @@ export function CandidatesSection() {
       id="candidates"
       aria-labelledby="candidates-title"
     >
+      <div
+        aria-hidden="true"
+        className="section-venn-orbits section-venn-orbits-candidates"
+      >
+        <span />
+        <span />
+      </div>
       <Container>
         <Reveal className={styles.layout}>
           <div className={styles.content}>

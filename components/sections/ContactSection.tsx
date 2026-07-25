@@ -11,6 +11,13 @@ export function ContactSection() {
       className={`page-section violet-section ${styles.section}`}
       id="contact"
     >
+      <div
+        aria-hidden="true"
+        className="section-venn-orbits section-venn-orbits-contact"
+      >
+        <span />
+        <span />
+      </div>
       <Container>
         <Reveal className={styles.header}>
           <p className={`eyebrow ${styles.eyebrow}`}>Contact Us</p>

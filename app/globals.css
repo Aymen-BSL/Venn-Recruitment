@@ -396,16 +396,43 @@ textarea.form-control {
   color: white;
 }
 
-.section-orbit {
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  height: clamp(14rem, 30vw, 32rem);
-  opacity: 0.1;
+.section-venn-orbits {
+  color: var(--green);
+  height: clamp(16rem, 26vw, 28rem);
+  opacity: 0.09;
   pointer-events: none;
   position: absolute;
-  right: -10%;
-  top: 8%;
-  width: clamp(14rem, 30vw, 32rem);
+  width: clamp(23rem, 38vw, 41rem);
+}
+
+.section-venn-orbits span {
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 68%;
+}
+
+.section-venn-orbits span:first-child {
+  left: 0;
+}
+
+.section-venn-orbits span:last-child {
+  right: 0;
+}
+
+.section-venn-orbits-candidates {
+  opacity: 0.11;
+  bottom: -7rem;
+  left: -11rem;
+}
+
+.section-venn-orbits-contact {
+  color: var(--sand);
+  opacity: 0.15;
+  right: -10rem;
+  top: -7rem;
 }
 
 @media (min-width: 640px) {
