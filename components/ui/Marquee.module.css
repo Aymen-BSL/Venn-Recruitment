@@ -1,0 +1,48 @@
+.marquee {
+  --marquee-gap: clamp(0.9rem, 2vw, 1.5rem);
+  --marquee-duration: 42s;
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  animation: marquee var(--marquee-duration) linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--marquee-gap);
+  padding-right: var(--marquee-gap);
+}
+
+.pauseOnHover:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .track {
+    animation: none;
+  }
+
+  .group[aria-hidden="true"] {
+    display: none;
+  }
+}

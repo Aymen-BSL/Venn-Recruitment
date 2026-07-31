@@ -6,6 +6,7 @@ import styles from "./FooterSection.module.css";
 
 const exploreLinks = [
   ["About Venn", "/#about"],
+  ["Our Team", "/#team"],
   ["Industries", "/#industries"],
   ["Locations", "/#locations"],
   ["How It Works", "/#how-it-works"],

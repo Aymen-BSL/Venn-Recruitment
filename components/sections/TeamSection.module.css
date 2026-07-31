@@ -1,0 +1,38 @@
+.section {
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.introduction {
+  display: grid;
+  gap: clamp(1.5rem, 5vw, 5rem);
+}
+
+.title {
+  max-width: 13ch;
+}
+
+.description {
+  align-self: end;
+  color: var(--copy-muted-inverse);
+  font-size: var(--section-copy-size);
+  line-height: var(--copy-leading);
+  margin: 0;
+  max-width: 39rem;
+}
+
+.cards {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4%,
+    black 96%,
+    transparent
+  );
+}
+
+@media (min-width: 900px) {
+  .introduction {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  }
+}

@@ -1,0 +1,59 @@
+.card {
+  aspect-ratio: 3 / 4;
+  background: color-mix(in srgb, var(--green) 8%, white);
+  border-radius: clamp(1.15rem, 2vw, 1.6rem);
+  overflow: hidden;
+  position: relative;
+  width: clamp(15.5rem, 22vw, 18rem);
+}
+
+.image {
+  filter: grayscale(1);
+  object-fit: cover;
+  transition: filter 320ms ease, transform 420ms ease;
+}
+
+.identity {
+  backdrop-filter: blur(12px);
+  background: rgb(248 249 250 / 0.88);
+  bottom: 0.65rem;
+  left: 0.65rem;
+  padding: 0.8rem 0.9rem;
+  position: absolute;
+  right: 0.65rem;
+}
+
+.identity h3 {
+  color: var(--ink);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.identity p {
+  color: var(--copy-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin: 0.3rem 0 0;
+}
+
+@media (hover: hover) {
+  .card:hover .image {
+    filter: grayscale(0);
+    transform: scale(1.025);
+  }
+}
+
+@media (hover: none) {
+  .image {
+    filter: grayscale(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    transition: none;
+  }
+}

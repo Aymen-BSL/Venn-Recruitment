@@ -10,9 +10,9 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
 const navigation = [
   ["Home", "#home"],
   ["About Venn", "#about"],
+  ["Our Team", "#team"],
   ["For Employers", "#employers"],
   ["For Candidates", "#candidates"],
-  ["Find a Job", "/submit-cv"],
   ["Industries", "#industries"],
   ["Locations", "#locations"],
   ["Contact", "#contact"],

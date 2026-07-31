@@ -11,6 +11,7 @@ import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { LegalLinksSection } from "@/components/sections/LegalLinksSection";
 import { LocationsSection } from "@/components/sections/LocationsSection";
+import { TeamSection } from "@/components/sections/TeamSection";
 import { TrustSafetySection } from "@/components/sections/TrustSafetySection";
 import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
 
@@ -32,6 +33,7 @@ export default function Page() {
         <AboutSection />
         <EmployersSection />
         <CandidatesSection />
+        <TeamSection />
         <IndustriesSection />
         <LocationsSection />
         <HowItWorksSection />

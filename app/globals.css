@@ -435,6 +435,13 @@ textarea.form-control {
   top: -7rem;
 }
 
+.section-venn-orbits-team {
+  color: var(--sand);
+  opacity: 0.1;
+  right: -6rem;
+  top: -5rem;
+}
+
 @media (min-width: 640px) {
   .form-grid-2,
   .card-grid-2 {
