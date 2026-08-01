@@ -1,8 +1,6 @@
 import { Reveal } from "@/components/animation/Reveal";
 import { Container } from "@/components/ui/Container";
-import { Marquee } from "@/components/ui/Marquee";
-import { TeamMemberCard } from "@/components/ui/TeamMemberCard";
-import { teamMembers } from "./team-members";
+import { TeamRoster } from "./TeamRoster";
 import styles from "./TeamSection.module.css";
 
 export function TeamSection() {
@@ -36,11 +34,7 @@ export function TeamSection() {
           </header>
 
           <div className={styles.cards}>
-            <Marquee pauseOnHover>
-              {teamMembers.map((member) => (
-                <TeamMemberCard key={member.name} member={member} />
-              ))}
-            </Marquee>
+            <TeamRoster />
           </div>
         </Reveal>
       </Container>

@@ -22,6 +22,41 @@
 
 .cards {
   margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.mobileRoster,
+.mobileCards {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+.mobileRoster {
+  gap: 1.5rem;
+  overflow-anchor: none;
+}
+
+.mobileCards {
+  gap: 1.25rem;
+}
+
+.mobileCards > article {
+  width: min(100%, 18rem);
+}
+
+.showMembersButton {
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  min-width: 13.5rem;
+}
+
+.showMembersButton:hover {
+  background: var(--paper);
+}
+
+.desktopRoster {
+  display: none;
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -29,6 +64,16 @@
     black 96%,
     transparent
   );
+}
+
+@media (min-width: 700px) {
+  .mobileRoster {
+    display: none;
+  }
+
+  .desktopRoster {
+    display: block;
+  }
 }
 
 @media (min-width: 900px) {

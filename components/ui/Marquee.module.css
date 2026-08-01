@@ -19,8 +19,14 @@
   padding-right: var(--marquee-gap);
 }
 
-.pauseOnHover:hover .track {
+.paused .track {
   animation-play-state: paused;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pauseOnHover:hover .track {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes marquee {
