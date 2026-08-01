@@ -4,13 +4,24 @@ A responsive recruitment website for Venn Recruitment, connecting employers and 
 
 ## Tech stack
 
-- Next.js 16 with the App Router
-- React 19 and TypeScript
-- CSS Modules and Tailwind CSS 4
-- GSAP for motion
-- Lucide React icons
-- Zod validation and Supabase Postgres/Storage
-- Vitest and Testing Library
+- **Application:** Next.js, React, TypeScript
+- **Interface:** Tailwind CSS, CSS Modules, shadcn/ui, 21st.dev components, GSAP
+- **Forms:** React Hook Form and Zod
+- **Data & Storage:** Supabase Postgres, RPC functions, Row Level Security, and private Supabase Storage
+- **Operations:** ClickUp API integration with durable task and notification delivery
+- **Testing:** Vitest, React Testing Library, jest-dom, user-event, and pgTAP
+
+## Core workflows
+
+- Candidate CV submissions with validated private document uploads
+- Employer hiring enquiries and general contact submissions
+- Server-side React Hook Form and Zod validation
+- Restricted Supabase persistence through RPC functions and Row Level Security
+- Private CV storage with file-type and file-signature verification
+- Automated ClickUp tasks and internal notification messages
+- Idempotent retries, duplicate-submission protection, and anti-spam controls
+- Scheduled ClickUp delivery retries and 12-month submission retention
+- UI, form-interaction, and database-policy testing
 
 ## Getting started
 
