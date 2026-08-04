@@ -25,8 +25,8 @@ export function AboutSection() {
           <figure className="about-visual">
             <Image
               className="about-visual-image"
-              src="/media/about-recruitment-v3.webp"
-              alt="Recruitment professionals in conversation alongside the Venn Recruitment mark and a meeting room"
+              src="/media/about-recruitment-v4.webp"
+              alt="Recruitment professionals meeting alongside the Venn Recruitment mark and a recruitment agreement"
               width={1200}
               height={998}
               sizes="(min-width: 900px) 48vw, 100vw"
