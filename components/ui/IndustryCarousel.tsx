@@ -2,7 +2,7 @@
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "./IndustryCarousel.module.css";
 
@@ -80,6 +80,7 @@ function getItemsPerPage() {
 export function IndustryCarousel() {
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(1);
+  const viewportRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -104,12 +105,40 @@ export function IndustryCarousel() {
 
   const activePage = Math.min(currentPage, pages.length - 1);
 
+  const showPage = (pageIndex: number) => {
+    const nextPage = Math.max(0, Math.min(pages.length - 1, pageIndex));
+
+    setCurrentPage(nextPage);
+
+    if (itemsPerPage < 3 && viewportRef.current) {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      viewportRef.current.scrollTo({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        left: nextPage * viewportRef.current.clientWidth,
+      });
+    }
+  };
+
   const showPreviousPage = () => {
-    setCurrentPage(Math.max(0, activePage - 1));
+    showPage(activePage - 1);
   };
 
   const showNextPage = () => {
-    setCurrentPage(Math.min(pages.length - 1, activePage + 1));
+    showPage(activePage + 1);
+  };
+
+  const syncPageWithScroll = () => {
+    const viewport = viewportRef.current;
+
+    if (itemsPerPage === 3 || !viewport?.clientWidth) {
+      return;
+    }
+
+    const visiblePage = Math.round(viewport.scrollLeft / viewport.clientWidth);
+    setCurrentPage(Math.max(0, Math.min(pages.length - 1, visiblePage)));
   };
 
   return (
@@ -119,7 +148,7 @@ export function IndustryCarousel() {
       className={styles.carousel}
       role="region"
     >
-      <div className={styles.viewport}>
+      <div className={styles.viewport} onScroll={syncPageWithScroll} ref={viewportRef}>
         <div
           className={styles.track}
           style={{ transform: `translateX(-${activePage * 100}%)` }}
@@ -179,7 +208,7 @@ export function IndustryCarousel() {
             aria-pressed={pageIndex === activePage}
             className={styles.dot}
             key={page.map((industry) => industry.name).join("-")}
-            onClick={() => setCurrentPage(pageIndex)}
+            onClick={() => showPage(pageIndex)}
             type="button"
           />
         ))}
