@@ -11,7 +11,7 @@ const industries = [
     name: "Corporate & Professional Services",
     description:
       "Connecting businesses with professionals across essential corporate and specialist functions.",
-    image: "/media/venn-hero-poster.jpg",
+    image: "/media/venn-hero-men-poster.jpg",
     imageAlt: "Professionals working together in a modern office",
   },
   {
@@ -46,7 +46,7 @@ const industries = [
     name: "Retail & Consumer",
     description:
       "Helping businesses find the talent needed to understand customers, strengthen operations and support growth.",
-    image: "/media/venn-hero-poster.jpg",
+    image: "/media/venn-hero-men-poster.jpg",
     imageAlt: "Collaborative team reviewing work together",
   },
   {

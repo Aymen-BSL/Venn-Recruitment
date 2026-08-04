@@ -26,10 +26,10 @@ export function HeroVideo() {
       loop
       playsInline
       preload="metadata"
-      poster="/media/venn-hero-poster.jpg"
+      poster="/media/venn-hero-men-poster.jpg"
       tabIndex={-1}
     >
-      <source src="/media/venn-hero.mp4" type="video/mp4" />
+      <source src="/media/venn-hero-men.mp4" type="video/mp4" />
     </video>
   );
 }

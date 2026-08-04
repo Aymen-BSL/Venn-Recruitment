@@ -1,21 +1,21 @@
 import type { TeamMember } from "@/components/ui/TeamMemberCard";
 
-// Temporary profiles for layout preview. Replace these entries with the real team.
+// Real team members appear first. Replace the remaining placeholders as photos arrive.
 export const teamMembers: readonly TeamMember[] = [
   {
-    image: "/media/team/temporary-man-1.webp",
-    name: "Omar Rahman",
-    role: "Managing Director",
+    image: "/media/team/ahmed-rosanally.webp",
+    name: "Ahmed Rosanally",
+    role: "Co-Founder",
   },
   {
-    image: "/media/team/temporary-man-2.webp",
-    name: "Adam Bennett",
-    role: "Recruitment Partner",
+    image: "/media/team/aymen-ben-salem.webp",
+    name: "Aymen Ben Salem",
+    role: "Co-Founder",
   },
   {
-    image: "/media/team/temporary-man-3.webp",
-    name: "Elias Morgan",
-    role: "Talent Consultant",
+    image: "/media/team/yasir-gangat.webp",
+    name: "Yasir Gangat",
+    role: "Co-Founder",
   },
   {
     image: "/media/team/temporary-man-4.webp",

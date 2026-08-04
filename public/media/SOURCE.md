@@ -1,7 +1,11 @@
 # Hero Media Source
 
-- Asset: Diverse team collaborating in a modern office with laptops and documents
-- Source: https://www.pexels.com/video/business-people-working-in-the-office-7148578/
-- Publisher: Pexels
-- Usage shown by source: Free to use
-- Local files: `venn-hero.mp4`, `venn-hero-poster.jpg`
+- Asset: Two businessmen discussing strategy in a modern office
+- Source: https://www.pexels.com/video/two-men-in-a-meeting-6285663/
+- Creator: Gustavo Fring
+- License: Pexels license (free to use)
+- Local files: `venn-hero-men.mp4`, `venn-hero-men-poster.jpg`
+
+The source footage was trimmed to 10 seconds, muted, resized to 1920 x 1080,
+and compressed as H.264 for use as the homepage hero background. The poster
+image was extracted from the optimized video.
